@@ -1,0 +1,199 @@
+{
+  "updated": "2026-06-12T11:22:23.969Z",
+  "source": "seed (pre-tournament baseline)",
+  "note": "Overwritten by the daily GitHub Action once it runs.",
+  "teams": {
+    "Spain": {
+      "e": 2157,
+      "form": "WDDW"
+    },
+    "Argentina": {
+      "e": 2115,
+      "form": "WWWWW"
+    },
+    "France": {
+      "e": 2063,
+      "form": "WWWLW"
+    },
+    "England": {
+      "e": 2024,
+      "form": "WDLWW"
+    },
+    "Brazil": {
+      "e": 1991,
+      "form": "DLWWW"
+    },
+    "Portugal": {
+      "e": 1989,
+      "form": "WDWWW"
+    },
+    "Colombia": {
+      "e": 1982,
+      "form": "WLLWW"
+    },
+    "Netherlands": {
+      "e": 1948,
+      "form": "WWDLW"
+    },
+    "Ecuador": {
+      "e": 1938,
+      "form": "WDDWW"
+    },
+    "Germany": {
+      "e": 1932,
+      "form": "WWWWW"
+    },
+    "Norway": {
+      "e": 1914,
+      "form": "WLDWD"
+    },
+    "Croatia": {
+      "e": 1912,
+      "form": "WWLLW"
+    },
+    "Switzerland": {
+      "e": 1895,
+      "form": "DLDWD"
+    },
+    "Uruguay": {
+      "e": 1888,
+      "form": ""
+    },
+    "Japan": {
+      "e": 1879,
+      "form": "WWWWW"
+    },
+    "Senegal": {
+      "e": 1869,
+      "form": "LWWLD"
+    },
+    "Morocco": {
+      "e": 1858,
+      "form": "DWWWD"
+    },
+    "Türkiye": {
+      "e": 1860,
+      "form": "WW"
+    },
+    "Ghana": {
+      "e": 1650,
+      "form": "D"
+    },
+    "Belgium": {
+      "e": 1849,
+      "form": "DWWWW"
+    },
+    "Mexico": {
+      "e": 1800,
+      "form": "DDWWW"
+    },
+    "USA": {
+      "e": 1788,
+      "form": "LLWL"
+    },
+    "Austria": {
+      "e": 1788,
+      "form": "W"
+    },
+    "Sweden": {
+      "e": 1770,
+      "form": "DWWLD"
+    },
+    "Czechia": {
+      "e": 1762,
+      "form": "WW"
+    },
+    "Iraq": {
+      "e": 1490,
+      "form": "WD"
+    },
+    "Ivory Coast": {
+      "e": 1748,
+      "form": "W"
+    },
+    "Scotland": {
+      "e": 1742,
+      "form": "WLLWW"
+    },
+    "South Korea": {
+      "e": 1740,
+      "form": "WW"
+    },
+    "Algeria": {
+      "e": 1738,
+      "form": "W"
+    },
+    "Canada": {
+      "e": 1728,
+      "form": "WD"
+    },
+    "Australia": {
+      "e": 1715,
+      "form": "LD"
+    },
+    "Iran": {
+      "e": 1702,
+      "form": "W"
+    },
+    "Paraguay": {
+      "e": 1700,
+      "form": "W"
+    },
+    "Egypt": {
+      "e": 1700,
+      "form": "WL"
+    },
+    "Tunisia": {
+      "e": 1690,
+      "form": "LL"
+    },
+    "Bosnia & Herzegovina": {
+      "e": 1690,
+      "form": "DD"
+    },
+    "DR Congo": {
+      "e": 1680,
+      "form": "DL"
+    },
+    "Panama": {
+      "e": 1645,
+      "form": "LWD"
+    },
+    "South Africa": {
+      "e": 1640,
+      "form": "LDLDW"
+    },
+    "Saudi Arabia": {
+      "e": 1620,
+      "form": "LD"
+    },
+    "Qatar": {
+      "e": 1620,
+      "form": "LD"
+    },
+    "Uzbekistan": {
+      "e": 1585,
+      "form": "LL"
+    },
+    "Jordan": {
+      "e": 1565,
+      "form": "LL"
+    },
+    "Cape Verde": {
+      "e": 1560,
+      "form": "W"
+    },
+    "Curaçao": {
+      "e": 1505,
+      "form": "LW"
+    },
+    "Haiti": {
+      "e": 1500,
+      "form": "WW"
+    },
+    "New Zealand": {
+      "e": 1500,
+      "form": "LL"
+    }
+  }
+}

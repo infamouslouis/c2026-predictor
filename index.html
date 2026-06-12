@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Cup 2026 — Matchday Predictor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e1a; --bg2:#111726; --panel:#151c2e; --line:rgba(255,255,255,.09);
+    --ink:#f2f4f8; --muted:#8a93a8; --faint:#5a6378;
+    --A:#ff5e3a; --A-soft:rgba(255,94,58,.16);
+    --B:#2fd2c4; --B-soft:rgba(47,210,196,.16);
+    --draw:#566077; --gold:#ffd24a;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:radial-gradient(1200px 700px at 50% -10%, #131b30 0%, var(--bg) 55%) fixed;
+    color:var(--ink); font-family:Inter,system-ui,sans-serif; line-height:1.5;
+    min-height:100vh; padding:32px 20px 64px; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto}
+
+  /* ---- header ---- */
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  h1{font-family:Anton,sans-serif;font-weight:400;font-size:clamp(34px,7vw,60px);
+     letter-spacing:.01em;line-height:.95;margin:6px 0 4px;text-transform:uppercase}
+  h1 .vs{color:var(--gold)}
+  .sub{color:var(--muted);font-size:14px;max-width:54ch}
+  .stamp{display:inline-block;margin-top:14px;font-size:11.5px;color:var(--muted);
+     background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:5px 12px;letter-spacing:.02em}
+  .stamp b{color:var(--gold);font-weight:600}
+
+  /* ---- matchup picker ---- */
+  .picker{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:end;margin-top:30px}
+  .field label{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+     color:var(--muted);font-weight:600;margin-bottom:7px}
+  .field.left label{color:var(--A)} .field.right label{color:var(--B)}
+  select{
+    width:100%;background:var(--bg2);color:var(--ink);border:1px solid var(--line);
+    border-radius:10px;padding:13px 14px;font-family:Inter;font-size:15px;font-weight:600;
+    appearance:none;cursor:pointer;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%238a93a8' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat:no-repeat;background-position:right 13px center;
+  }
+  select:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .vsbadge{font-family:Anton,sans-serif;font-size:22px;color:var(--faint);padding-bottom:11px;letter-spacing:.05em}
+
+  /* ---- venue control ---- */
+  .controls{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:16px}
+  .seg{display:inline-flex;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:3px}
+  .seg input{position:absolute;opacity:0;pointer-events:none}
+  .seg label{font-size:12.5px;font-weight:600;color:var(--muted);padding:8px 13px;border-radius:8px;cursor:pointer;white-space:nowrap;transition:.15s}
+  .seg input:checked + label{background:var(--panel);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+  .seg input:focus-visible + label{outline:2px solid var(--gold);outline-offset:2px}
+  .seg input:disabled + label{opacity:.32;cursor:not-allowed}
+  .venuehint{font-size:12px;color:var(--faint);margin-top:9px}
+  .advtoggle{margin-left:auto;background:none;border:none;color:var(--muted);font-family:Inter;
+     font-size:12.5px;font-weight:600;cursor:pointer;letter-spacing:.04em;display:flex;gap:6px;align-items:center}
+  .advtoggle:hover{color:var(--ink)}
+  .advtoggle:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+  /* ---- advanced panel ---- */
+  .advanced{display:none;margin-top:14px;background:var(--bg2);border:1px solid var(--line);
+     border-radius:var(--radius);padding:18px}
+  .advanced.open{display:block}
+  .advgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px 22px}
+  .advcol h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+  .advcol.a h4{color:var(--A)} .advcol.b h4{color:var(--B)}
+  .advrow{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:9px}
+  .advrow span{font-size:13px;color:var(--muted)}
+  .advrow input[type=number]{width:78px;background:var(--bg);color:var(--ink);border:1px solid var(--line);
+     border-radius:7px;padding:7px 8px;font-family:Inter;font-size:13px;font-weight:600;text-align:right}
+  .advrow input[type=range]{flex:1;accent-color:var(--gold)}
+  .advrow input:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+  .advfull{grid-column:1/-1;border-top:1px solid var(--line);padding-top:14px}
+
+  /* ---- result bar (signature) ---- */
+  .result{margin-top:26px}
+  .h2h{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:9px}
+  .side{display:flex;flex-direction:column}
+  .side.right{text-align:right;align-items:flex-end}
+  .side .code{font-family:Anton,sans-serif;font-size:30px;letter-spacing:.02em;line-height:1}
+  .side.a .code{color:var(--A)} .side.b .code{color:var(--B)}
+  .side .name{font-size:12px;color:var(--muted);margin-top:3px}
+  .pct{font-family:Anton,sans-serif;font-size:40px;line-height:.9}
+  .side.a .pct{color:var(--A)} .side.b .pct{color:var(--B)}
+  .drawlbl{text-align:center;align-self:flex-end}
+  .drawlbl .pct{font-size:28px;color:var(--draw)}
+  .drawlbl .name{font-size:11px;color:var(--faint);letter-spacing:.12em;text-transform:uppercase}
+
+  .bar{display:flex;height:16px;border-radius:8px;overflow:hidden;background:var(--bg2);border:1px solid var(--line)}
+  .bar span{height:100%;transition:width .55s cubic-bezier(.22,1,.36,1)}
+  .bar .ba{background:var(--A)} .bar .bd{background:var(--draw)} .bar .bb{background:var(--B)}
+
+  /* ---- stat tiles ---- */
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+  .tile{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 14px}
+  .tile .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .tile .v{font-family:Anton,sans-serif;font-size:30px;line-height:1.05;margin-top:8px}
+  .tile .v small{font-family:Inter;font-size:13px;color:var(--muted);font-weight:600;letter-spacing:0}
+  .tile.xa .v{color:var(--A)} .tile.xb .v{color:var(--B)}
+
+  /* ---- markets ---- */
+  .section-h{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+     font-weight:600;margin:30px 0 12px;display:flex;align-items:center;gap:10px}
+  .section-h::after{content:"";flex:1;height:1px;background:var(--line)}
+  /* ---- key players ---- */
+  .players{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .pteam{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+  .pteam.a{border-top:2px solid var(--A)} .pteam.b{border-top:2px solid var(--B)}
+  .pteam h5{font-family:Anton,sans-serif;font-weight:400;font-size:15px;letter-spacing:.04em;
+     margin-bottom:13px;text-transform:uppercase}
+  .pteam.a h5{color:var(--A)} .pteam.b h5{color:var(--B)}
+  .pcard{padding:12px 0;border-top:1px solid var(--line)}
+  .pcard:nth-of-type(2){border-top:none;padding-top:0}
+  .pname{font-size:14.5px;font-weight:700}
+  .pmeta{font-size:11.5px;color:var(--muted);margin-top:2px}
+  .pchips{display:flex;gap:16px;margin-top:10px}
+  .pchip{display:flex;flex-direction:column}
+  .pchip .pv{font-family:Anton,sans-serif;font-weight:400;font-size:23px;line-height:1}
+  .pteam.a .pv{color:var(--A)} .pteam.b .pv{color:var(--B)}
+  .pchip .pk{font-size:9.5px;color:var(--muted);letter-spacing:.05em;margin-top:4px;text-transform:uppercase}
+  .pnote{font-size:11px;color:var(--faint);margin-top:9px;line-height:1.45}
+  .pempty{font-size:12.5px;color:var(--faint);line-height:1.55}
+
+  .markets{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .mkt{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
+  .mkt .lbl{font-size:12px;color:var(--muted);font-weight:600}
+  .mkt .mrow{display:flex;justify-content:space-between;margin-top:9px;font-size:13px}
+  .mkt .mrow b{font-family:Anton;font-weight:400;font-size:17px;letter-spacing:.01em}
+  .mkt .mrow.dim{color:var(--faint)} .mkt .mrow.dim b{color:var(--faint)}
+
+  /* ---- value finder (EV) ---- */
+  .evwrap{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);
+     padding:4px 2px;overflow-x:auto}
+  .evtable{width:100%;border-collapse:collapse;font-size:13px;min-width:460px}
+  .evtable th{font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
+     font-weight:600;text-align:right;padding:11px 14px 8px}
+  .evtable th:first-child{text-align:left}
+  .evtable td{padding:8px 14px;text-align:right;border-top:1px solid var(--line);white-space:nowrap}
+  .evtable td:first-child{text-align:left;color:var(--ink)}
+  .evtable tbody tr:first-child td{border-top:none}
+  .evtable tr.grp td{border-top:1px solid var(--line)}
+  .evtable tr.gA td:first-child{box-shadow:inset 3px 0 var(--A)}
+  .evtable tr.gB td:first-child{box-shadow:inset 3px 0 var(--B)}
+  .evtable .mp{font-family:Anton;font-weight:400;font-size:15px;letter-spacing:.01em}
+  .evtable .fair{color:var(--faint);font-variant-numeric:tabular-nums}
+  .odds{width:64px;background:var(--bg);border:1px solid var(--line);border-radius:7px;color:var(--ink);
+     font-size:13px;padding:6px 8px;text-align:right;font-variant-numeric:tabular-nums;outline:none;
+     -moz-appearance:textfield}
+  .odds::-webkit-outer-spin-button,.odds::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .odds:focus{border-color:var(--muted)}
+  .ev{font-family:Anton;font-weight:400;font-size:15px;color:var(--faint);min-width:58px;
+     display:inline-block;text-align:right;font-variant-numeric:tabular-nums}
+  .ev.pos{color:#2ecc71} .ev.neg{color:#e0524d}
+  .evnote{font-size:11.5px;color:var(--faint);line-height:1.6;padding:13px 14px 7px}
+  .evnote .pos{color:#2ecc71;font-weight:600} .evnote .neg{color:#e0524d;font-weight:600}
+  .evnote b{color:var(--muted);font-weight:600}
+
+  /* ---- heatmap ---- */
+  .heat{margin-top:14px;background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);
+     padding:18px;overflow-x:auto}
+  .heatgrid{display:grid;grid-template-columns:auto repeat(6,1fr);gap:4px;min-width:340px}
+  .hcell{aspect-ratio:1;border-radius:6px;display:flex;align-items:center;justify-content:center;
+     font-size:11px;font-weight:600;color:var(--ink);position:relative}
+  .hhdr{background:none;color:var(--muted);font-size:11px;font-weight:700;aspect-ratio:auto;
+     display:flex;align-items:center;justify-content:center}
+  .hcell.peak{outline:2px solid var(--gold);outline-offset:-2px}
+  .heataxis{display:flex;justify-content:space-between;margin-top:12px;font-size:11px;color:var(--muted)}
+  .heataxis .axa{color:var(--A);font-weight:600} .heataxis .axb{color:var(--B);font-weight:600}
+
+  .foot{margin-top:30px;font-size:12px;color:var(--faint);line-height:1.6;border-top:1px solid var(--line);padding-top:16px}
+  .foot b{color:var(--muted);font-weight:600}
+
+  @media (max-width:620px){
+    .picker{grid-template-columns:1fr;gap:10px}
+    .vsbadge{display:none}
+    .tiles{grid-template-columns:repeat(2,1fr)}
+    .markets{grid-template-columns:repeat(2,1fr)}
+    .players{grid-template-columns:1fr}
+    .advgrid{grid-template-columns:1fr}
+    .controls{gap:10px}.advtoggle{margin-left:0}
+  }
+  @media (prefers-reduced-motion:reduce){.bar span{transition:none}}
+
+    /* recent-form strip */
+    .formrow{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;flex-wrap:wrap}
+    .formside{display:flex;align-items:center;gap:8px}
+    .formside.right{flex-direction:row-reverse}
+    .formlbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+    .formstrip{display:inline-flex;gap:4px}
+    .fchip{width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;font:700 10px/1 'Inter',sans-serif;color:#0a0e17}
+    .fchip.w{background:#2ecc71}
+    .fchip.d{background:#e8a13a}
+    .fchip.l{background:#e0524d;color:#fff}
+    .fchip.n{background:rgba(255,255,255,.07);color:var(--muted)}
+    .formlegend{display:flex;gap:12px;font-size:10px;color:var(--muted);align-items:center}
+    .formlegend i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+    .formlegend i.w{background:#2ecc71}.formlegend i.d{background:#e8a13a}.formlegend i.l{background:#e0524d}
+    .advrow input.f5{width:96px;text-transform:uppercase;letter-spacing:.18em;text-align:center;font-weight:700}
+    @media(max-width:600px){.formlegend{order:3;width:100%;justify-content:center}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">World Cup 2026 · attack/defence Dixon-Coles model</div>
+    <h1>Matchday <span class="vs">Predictor</span></h1>
+    <p class="sub">Pick any two teams. The model reads each side's strength, the venue, and your adjustments, then returns win odds, expected goals, and the full scoreline picture.</p>
+    <p class="stamp" id="dataStamp">Ratings current as of <b>11 Jun 2026</b> · built-in defaults</p>
+  </header>
+
+  <div class="picker">
+    <div class="field left">
+      <label for="teamA">Team A — home side</label>
+      <select id="teamA"></select>
+    </div>
+    <div class="vsbadge">VS</div>
+    <div class="field right">
+      <label for="teamB">Team B — away side</label>
+      <select id="teamB"></select>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="seg" role="radiogroup" aria-label="Venue">
+      <input type="radio" name="venue" id="vA" value="A"><label for="vA" id="lblA">A at home</label>
+      <input type="radio" name="venue" id="vN" value="N" checked><label for="vN">Neutral</label>
+      <input type="radio" name="venue" id="vB" value="B"><label for="vB" id="lblB">B at home</label>
+    </div>
+    <button class="advtoggle" id="advBtn" aria-expanded="false">Adjust ratings &amp; form ▾</button>
+  </div>
+  <p class="venuehint" id="venuehint"></p>
+
+  <div class="advanced" id="advPanel">
+    <div class="advgrid">
+      <div class="advcol a">
+        <h4 id="advAname">Team A</h4>
+        <div class="advrow"><span>Attack rating</span><input type="number" id="atkA" step="1"></div>
+        <div class="advrow"><span>Defence rating</span><input type="number" id="defA" step="1"></div>
+        <div class="advrow"><span>Manual adj. &nbsp;<small id="formAval" style="color:var(--muted)">0</small></span><input type="range" id="formA" min="-100" max="100" value="0" step="5"></div>
+        <div class="advrow"><span>Last 5 (W/D/L) <small style="color:var(--muted)">auto <b id="fAauto">0</b></small></span><input class="f5" id="f5A" maxlength="5" placeholder="– – – – –"></div>
+      </div>
+      <div class="advcol b">
+        <h4 id="advBname">Team B</h4>
+        <div class="advrow"><span>Attack rating</span><input type="number" id="atkB" step="1"></div>
+        <div class="advrow"><span>Defence rating</span><input type="number" id="defB" step="1"></div>
+        <div class="advrow"><span>Manual adj. &nbsp;<small id="formBval" style="color:var(--muted)">0</small></span><input type="range" id="formB" min="-100" max="100" value="0" step="5"></div>
+        <div class="advrow"><span>Last 5 (W/D/L) <small style="color:var(--muted)">auto <b id="fBauto">0</b></small></span><input class="f5" id="f5B" maxlength="5" placeholder="– – – – –"></div>
+      </div>
+      <div class="advfull advrow">
+        <span>Home advantage (Elo points applied to the home side)</span>
+        <input type="number" id="homeAdv" value="70" step="5">
+      </div>
+      <p class="advfull" style="font-size:11px;color:var(--faint);line-height:1.5;margin:2px 2px 0">
+        Both ratings start from each team's overall strength, nudged by its style (e.g. Morocco defence-leaning, Norway attack-leaning). <b style="color:var(--muted)">Higher defence = stronger</b> (concedes fewer). The <b style="color:var(--muted)">Last 5</b> strip auto-adjusts a team's rating (recent games weigh more; the “auto” value shows the points applied); <b style="color:var(--muted)">Manual adj.</b> is an extra nudge on top for injuries or team news.
+      </p>
+    </div>
+  </div>
+
+  <div class="result">
+    <div class="h2h">
+      <div class="side a"><span class="code" id="codeA">—</span><span class="name" id="nameA"></span><span class="pct" id="pctA">—</span></div>
+      <div class="drawlbl"><span class="pct" id="pctD">—</span><span class="name">Draw</span></div>
+      <div class="side b right"><span class="code" id="codeB">—</span><span class="name" id="nameB"></span><span class="pct" id="pctB">—</span></div>
+    </div>
+    <div class="bar"><span class="ba" id="barA"></span><span class="bd" id="barD"></span><span class="bb" id="barB"></span></div>
+    <div class="formrow">
+      <div class="formside"><span class="formlbl">Form</span><span class="formstrip" id="form5A"></span></div>
+      <div class="formlegend"><span><i class="w"></i>Win</span><span><i class="d"></i>Draw</span><span><i class="l"></i>Loss</span><span style="opacity:.65">recent →</span></div>
+      <div class="formside right"><span class="formlbl">Form</span><span class="formstrip" id="form5B"></span></div>
+    </div>
+  </div>
+
+  <div class="tiles">
+    <div class="tile xa"><div class="k">Expected goals A</div><div class="v" id="xgA">—</div></div>
+    <div class="tile xb"><div class="k">Expected goals B</div><div class="v" id="xgB">—</div></div>
+    <div class="tile"><div class="k">Most likely score</div><div class="v" id="topScore">—</div></div>
+    <div class="tile"><div class="k">Total goals</div><div class="v" id="totGoals">—</div></div>
+  </div>
+
+  <div class="section-h">Key players</div>
+  <div class="players" id="players"></div>
+
+  <div class="section-h">Match markets</div>
+  <div class="markets">
+    <div class="mkt">
+      <div class="lbl">Total goals</div>
+      <div class="mrow"><span>Over 2.5</span><b id="over25">—</b></div>
+      <div class="mrow dim"><span>Under 2.5</span><b id="under25">—</b></div>
+    </div>
+    <div class="mkt">
+      <div class="lbl">Both teams score</div>
+      <div class="mrow"><span>Yes</span><b id="bttsY">—</b></div>
+      <div class="mrow dim"><span>No</span><b id="bttsN">—</b></div>
+    </div>
+    <div class="mkt">
+      <div class="lbl">Clean sheet</div>
+      <div class="mrow"><span id="csAlbl">A</span><b id="csA">—</b></div>
+      <div class="mrow dim"><span id="csBlbl">B</span><b id="csB">—</b></div>
+    </div>
+    <div class="mkt">
+      <div class="lbl">Double chance</div>
+      <div class="mrow"><span id="dcAlbl">A or draw</span><b id="dcA">—</b></div>
+      <div class="mrow dim"><span id="dcBlbl">B or draw</span><b id="dcB">—</b></div>
+    </div>
+  </div>
+
+  <div class="section-h">Find value · expected value vs your odds</div>
+  <div class="evwrap">
+    <table class="evtable">
+      <thead><tr><th>Market</th><th>Model</th><th>Fair</th><th>Your odds</th><th>EV</th></tr></thead>
+      <tbody id="evbody"></tbody>
+    </table>
+    <div class="evnote">
+      Type the bookmaker's <b>decimal</b> odds for any outcome. <span class="pos">Green EV</span> = the model rates it more likely than the price implies (a possible value bet); <span class="neg">red</span> = the price is too short. <b>Fair</b> is the break-even odds (1 ÷ model probability) — beat that number and EV turns positive. EV is per 1 unit staked, so <b>+5%</b> ≈ 5 units profit per 100 over the long run — <i>only if the model's probability is right</i>, which is exactly the judgement call you're making.
+    </div>
+  </div>
+
+  <div class="section-h">Scoreline probabilities</div>
+  <div class="heat">
+    <div class="heatgrid" id="heatgrid"></div>
+    <div class="heataxis"><span class="axa" id="heatA">A goals →</span><span class="axb" id="heatB">↑ rows: B goals</span></div>
+  </div>
+
+  <p class="foot">
+    <b>Player stats.</b> All 48 teams are loaded with two key players each. Numbers are the 2025-26 club season (all competitions) unless labelled otherwise — "Intl" is international career, "Caps" is international appearances. For some smaller nations a clean season figure wasn't reliably available, so the chip shows role/club instead of a fabricated number. Compiled from public previews and fully editable.
+    <br><br>
+    <b>How to read this.</b> Every team now carries its own <b>attack</b> and <b>defence</b> rating. A side's expected goals = its attack against the other side's defence, so the total shifts with the matchup — a sharp attack meeting a leaky defence runs hot, two strong defences run cold — instead of every game sharing one fixed total. Both ratings start from the team's overall strength, tilted by a light, editable style prior (Morocco and Iran lean defensive, Norway and Germany lean attacking), and you can set them by hand under “Adjust ratings &amp; form.” Those two expected-goal figures feed a Dixon-Coles Poisson model for every scoreline, which drives the win odds, markets and EV. Ratings are current as of 11 Jun 2026 — verified for the top tier, estimated below it.
+    <br><br>
+    <b>Honest limits.</b> This is a strength-based statistical estimate. It does not know lineups, injuries, suspensions, or weather. Bookmaker odds fold all of that in, so expect differences — use the form sliders to nudge for team news, and treat the output as one well-reasoned view, not a guarantee.
+  </p>
+</div>
+
+<script>
+const TEAMS = [
+  {n:"Spain",c:"ESP",e:2157},{n:"Argentina",c:"ARG",e:2115},{n:"France",c:"FRA",e:2063},
+  {n:"England",c:"ENG",e:2024},{n:"Brazil",c:"BRA",e:1991},{n:"Portugal",c:"POR",e:1989},
+  {n:"Colombia",c:"COL",e:1982},{n:"Netherlands",c:"NED",e:1948},{n:"Ecuador",c:"ECU",e:1938},
+  {n:"Germany",c:"GER",e:1932},{n:"Norway",c:"NOR",e:1914},{n:"Croatia",c:"CRO",e:1912},
+  {n:"Switzerland",c:"SUI",e:1895},{n:"Uruguay",c:"URU",e:1888},{n:"Japan",c:"JPN",e:1879},
+  {n:"Senegal",c:"SEN",e:1869},{n:"Morocco",c:"MAR",e:1858},{n:"Türkiye",c:"TUR",e:1860},
+  {n:"Ghana",c:"GHA",e:1650},{n:"Belgium",c:"BEL",e:1849},{n:"Mexico",c:"MEX",e:1800},
+  {n:"USA",c:"USA",e:1788},{n:"Austria",c:"AUT",e:1788},{n:"Sweden",c:"SWE",e:1770},
+  {n:"Czechia",c:"CZE",e:1762},{n:"Iraq",c:"IRQ",e:1490},{n:"Ivory Coast",c:"CIV",e:1748},
+  {n:"Scotland",c:"SCO",e:1742},{n:"South Korea",c:"KOR",e:1740},{n:"Algeria",c:"ALG",e:1738},
+  {n:"Canada",c:"CAN",e:1728},{n:"Australia",c:"AUS",e:1715},{n:"Iran",c:"IRN",e:1702},
+  {n:"Paraguay",c:"PAR",e:1700},{n:"Egypt",c:"EGY",e:1700},{n:"Tunisia",c:"TUN",e:1690},
+  {n:"Bosnia & Herzegovina",c:"BIH",e:1690},{n:"DR Congo",c:"COD",e:1680},{n:"Panama",c:"PAN",e:1645},
+  {n:"South Africa",c:"RSA",e:1640},{n:"Saudi Arabia",c:"KSA",e:1620},{n:"Qatar",c:"QAT",e:1620},
+  {n:"Uzbekistan",c:"UZB",e:1585},{n:"Jordan",c:"JOR",e:1565},{n:"Cape Verde",c:"CPV",e:1560},
+  {n:"Curaçao",c:"CUW",e:1505},{n:"Haiti",c:"HAI",e:1500},{n:"New Zealand",c:"NZL",e:1500}
+];
+
+// Light, fully-editable style priors: how a team's goals tilt toward attack vs defence.
+// Positive = attack-leaning (scores more, concedes a bit more); negative = defence-leaning.
+// The skew is mean-preserving, so a team's OVERALL strength (and win odds) is unchanged —
+// only its goal texture shifts. Unlisted teams sit neutral (attack = defence = overall).
+const STYLE = {
+  "Germany":45,"Norway":45,"Portugal":35,"Spain":30,"Brazil":25,"Netherlands":25,"Colombia":25,
+  "Austria":25,"France":20,"Belgium":20,
+  "Iran":-50,"Morocco":-45,"Tunisia":-35,"Uruguay":-30,"Saudi Arabia":-30,"Croatia":-25,
+  "Switzerland":-25,"Egypt":-25,"Paraguay":-25,"Japan":-20,"Jordan":-20,"Algeria":-15,
+  "USA":-15,"South Korea":-15,"Senegal":-15,"Mexico":-10
+};
+TEAMS.forEach(t=>{ const k=STYLE[t.n]||0; t.a=t.e+k; t.d=t.e-k; });   // attack & defence ratings
+
+const RHO = -0.12;    // Dixon-Coles low-score correction
+const MAXG = 8;       // goals considered per team
+// --- matchup-dependent goal model (each team gets an attack & a defence factor from its rating) ---
+const ELOAVG    = TEAMS.reduce((s,t)=>s+t.e,0)/TEAMS.length;  // centre of this 48-team field
+const ELO_SCALE = 200;    // rating points per 1 unit of strength
+const G_BASE    = 1.35;   // goals an average team scores vs an average team (neutral) -> ~2.70 total
+const ATT_K     = 0.50;   // how strongly rating lifts a team's own scoring
+const DEF_K     = 0.56;   // how strongly rating suppresses goals against it (defence reacts a touch more)
+const G_CAP     = 4.30;   // sanity cap on one side's expected goals in a blowout
+const FORM_MAX  = 55;     // rating points a perfect (or winless) recent run shifts a team
+const HOSTS = new Set(["USA","Canada","Mexico"]);  // only co-hosts ever play 'home'
+
+// Verified key-player stats (first wave). 2025-26 club season, all competitions,
+// unless a chip is labelled otherwise ("Intl" = international career). Editable.
+const PLAYERS = {
+  "Spain":[
+    {name:"Lamine Yamal",club:"Barcelona",pos:"Right wing",chips:[{v:24,k:"Goals 25-26"},{v:17,k:"Assists 25-26"}],note:"All comps; led La Liga for assists as Barça won the title."},
+    {name:"Pedri",club:"Barcelona",pos:"Midfield",chips:[{v:2,k:"Goals 25-26"},{v:11,k:"Assists 25-26"}],note:"Barcelona's metronome; 41 appearances across the campaign."}
+  ],
+  "Argentina":[
+    {name:"Lionel Messi",club:"Inter Miami",pos:"Forward",chips:[{v:116,k:"Intl goals"},{v:"6th",k:"World Cup"}],note:"National-record scorer; led Inter Miami to the 2025 MLS Cup (Final MVP)."},
+    {name:"Lautaro Martínez",club:"Inter Milan",pos:"Striker",chips:[{v:17,k:"Serie A goals"},{v:"25-26",k:"Top scorer"}],note:"Finished as Serie A's top scorer in 2025-26."}
+  ],
+  "France":[
+    {name:"Kylian Mbappé",club:"Real Madrid",pos:"Forward",chips:[{v:42,k:"Goals 25-26"},{v:7,k:"Assists 25-26"}],note:"All comps; La Liga Pichichi (25) and Champions League top scorer (15)."},
+    {name:"Ousmane Dembélé",club:"PSG",pos:"Forward",chips:[{v:35,k:"Goals 24-25"},{v:14,k:"Assists 24-25"}],note:"2025 Ballon d'Or winner after PSG's treble; 25-26 disrupted by injury."}
+  ],
+  "England":[
+    {name:"Harry Kane",club:"Bayern Munich",pos:"Striker",chips:[{v:60,k:"Goals 25-26*"},{v:53,k:"Apps*"}],note:"*Across club and country, all competitions — a prolific season."},
+    {name:"Jude Bellingham",club:"Real Madrid",pos:"Attacking mid",chips:[{v:8,k:"Goals 25-26"},{v:5,k:"Assists 25-26"}],note:"All comps in an injury-hit Madrid season (38 apps); England's creative hub."}
+  ],
+  "Brazil":[
+    {name:"Vinícius Júnior",club:"Real Madrid",pos:"Left wing",chips:[{v:13,k:"Goals 25-26"},{v:40,k:"Apps 25-26"}],note:"2024 Ballon d'Or runner-up; Brazil's main threat from the left."},
+    {name:"Raphinha",club:"Barcelona",pos:"Right wing",chips:[{v:13,k:"Goals 25-26"},{v:5,k:"Assists 25-26"}],note:"Top scorer in qualifying; set-piece specialist (22 club games)."}
+  ],
+  "Portugal":[
+    {name:"Cristiano Ronaldo",club:"Al Nassr",pos:"Forward",chips:[{v:143,k:"Intl goals"},{v:"6th",k:"World Cup"}],note:"All-time international top scorer; passed 940 career goals in 2025-26."},
+    {name:"Bruno Fernandes",club:"Man United",pos:"Attacking mid",chips:[{v:21,k:"PL assists 25-26"},{v:28,k:"Intl goals"}],note:"Set a Premier League single-season assist record in 2025-26."}
+  ],
+  "Mexico":[
+    {name:"Raúl Jiménez",club:"Fulham",pos:"Striker",chips:[{v:9,k:"PL goals 25-26"},{v:44,k:"Intl goals"}],note:"Mexico's talisman and No. 3 all-time scorer; fourth World Cup."},
+    {name:"Santiago Giménez",club:"AC Milan",pos:"Striker",chips:[{v:19,k:"Goals 24-25"},{v:5,k:"Intl goals"}],note:"Mexico's sharpest box scorer — 19 all-comp goals in 2024-25."}
+  ],
+  "South Africa":[
+    {name:"Lyle Foster",club:"Burnley",pos:"Striker",chips:[{v:10,k:"Intl goals"},{v:26,k:"Caps"}],note:"Bafana's main striker and only top-flight English forward."},
+    {name:"Teboho Mokoena",club:"Mamelodi Sundowns",pos:"Defensive mid",chips:[{v:"50+",k:"Caps"},{v:"long-range",k:"Threat"}],note:"Midfield anchor who breaks up play and shoots from distance."}
+  ],
+  "Colombia":[
+    {name:"Luis Díaz",club:"Bayern Munich",pos:"Winger",chips:[{v:15,k:"BL goals 25-26"},{v:14,k:"Assists 25-26"}],note:"Brilliant debut Bundesliga season as Bayern won the title; 7 more goals in the Champions League."},
+    {name:"James Rodríguez",club:"Club León",pos:"Playmaker",chips:[{v:"2014",k:"WC Golden Boot"}],note:"Colombia's captain and creative talisman."}
+  ],
+  "Netherlands":[
+    {name:"Virgil van Dijk",club:"Liverpool",pos:"Centre-back",chips:[{v:90,k:"Caps"}],note:"Dutch captain and the rock of the defence."},
+    {name:"Cody Gakpo",club:"Liverpool",pos:"Forward",chips:[{v:7,k:"PL goals 25-26"},{v:5,k:"Assists 25-26"}],note:"Versatile Liverpool forward across 36 PL games; takes penalties."}
+  ],
+  "Ecuador":[
+    {name:"Moisés Caicedo",club:"Chelsea",pos:"Midfield",chips:[{v:60,k:"Caps"}],note:"Combative, ball-winning engine of a strong Ecuador side."},
+    {name:"Willian Pacho",club:"PSG",pos:"Centre-back",chips:[{v:34,k:"Caps"}],note:"Champions League-winning defender; anchors a miserly back line."}
+  ],
+  "Germany":[
+    {name:"Jamal Musiala",club:"Bayern Munich",pos:"Attacking mid",chips:[{v:3,k:"BL goals 25-26"},{v:4,k:"Assists 25-26"}],note:"Elite dribbler limited to 15 league games by a 2025 leg fracture; Germany's spark."},
+    {name:"Florian Wirtz",club:"Liverpool",pos:"Attacking mid",chips:[{v:5,k:"Goals 25-26"},{v:4,k:"Assists 25-26"}],note:"Creative fulcrum in a debut Liverpool season after a nine-figure move."}
+  ],
+  "Norway":[
+    {name:"Erling Haaland",club:"Man City",pos:"Striker",chips:[{v:27,k:"PL goals 25-26"},{v:8,k:"Assists 25-26"}],note:"Won the 2025-26 Premier League Golden Boot; relentless penalty-box striker."},
+    {name:"Martin Ødegaard",club:"Arsenal",pos:"Attacking mid",chips:[{v:67,k:"Caps"}],note:"Captain and chief creator when fit."}
+  ],
+  "Croatia":[
+    {name:"Luka Modrić",club:"AC Milan",pos:"Midfield",chips:[{v:196,k:"Caps"}],note:"40-year-old conductor; among the most-capped players at the tournament."},
+    {name:"Joško Gvardiol",club:"Man City",pos:"Defender",chips:[{v:46,k:"Caps"}],note:"Ball-playing defender; the most expensive defender in history."}
+  ],
+  "Switzerland":[
+    {name:"Manuel Akanji",club:"Man City",pos:"Centre-back",chips:[{v:"2023",k:"Treble winner"}],note:"Composed, versatile centre-back."},
+    {name:"Granit Xhaka",club:"Sunderland",pos:"Midfield",chips:[{v:"Captain",k:"Switzerland"}],note:"Experienced midfield metronome and leader."}
+  ],
+  "Uruguay":[
+    {name:"Federico Valverde",club:"Real Madrid",pos:"Midfield",chips:[{v:73,k:"Caps"}],note:"Tireless box-to-box engine of Uruguay's midfield."},
+    {name:"Darwin Núñez",club:"Al-Hilal",pos:"Striker",chips:[{v:6,k:"Saudi goals 25-26"},{v:4,k:"Assists 25-26"}],note:"Powerful, direct No. 9 (9 in all comps); penalty taker (11/12 career)."}
+  ],
+  "Japan":[
+    {name:"Takefusa Kubo",club:"Real Sociedad",pos:"Winger",chips:[{v:2,k:"La Liga goals 25-26"},{v:4,k:"Assists 25-26"}],note:"Japan's most creative attacker; a Copa del Rey winner this season."},
+    {name:"Wataru Endo",club:"Liverpool",pos:"Defensive mid",chips:[{v:"Anchor",k:"Liverpool"}],note:"Midfield anchor with Premier League pedigree."}
+  ],
+  "Senegal":[
+    {name:"Sadio Mané",club:"Al-Nassr",pos:"Forward",chips:[{v:10,k:"Saudi goals 25-26"},{v:6,k:"Assists 25-26"}],note:"Senegal's all-time leading scorer; still prolific in the Saudi Pro League."},
+    {name:"Ismaïla Sarr",club:"Crystal Palace",pos:"Winger",chips:[{v:9,k:"PL goals 25-26"},{v:1,k:"Assists 25-26"}],note:"Pacey wide threat; Conference League top scorer as Palace won it (pen taker, 7/9)."}
+  ],
+  "Morocco":[
+    {name:"Achraf Hakimi",club:"PSG",pos:"Right-back",chips:[{v:95,k:"Caps"},{v:"2025",k:"CL winner"}],note:"Captain and Africa's best player; attacks like a winger."},
+    {name:"Brahim Díaz",club:"Real Madrid",pos:"Attacking mid",chips:[{v:5,k:"AFCON'25 goals"}],note:"AFCON 2025 Golden Boot; Morocco's creative engine."}
+  ],
+  "Türkiye":[
+    {name:"Arda Güler",club:"Real Madrid",pos:"Attacking mid",chips:[{v:6,k:"Goals 25-26"},{v:14,k:"Assists 25-26"}],note:"All comps; broke through at Real Madrid with 40 starts (4G/9A in La Liga)."},
+    {name:"Kenan Yıldız",club:"Juventus",pos:"Forward",chips:[{v:11,k:"Goals 25-26"},{v:9,k:"Assists 25-26"}],note:"All comps; Juventus's focal point and a game-changer at 21."}
+  ],
+  "Ghana":[
+    {name:"Antoine Semenyo",club:"Man City",pos:"Winger",chips:[{v:34,k:"Caps"}],note:"Breakout season; 10 goals in 20 games before a January move to Man City."},
+    {name:"Mohammed Kudus",club:"Tottenham",pos:"Forward",chips:[{v:"Forward",k:"Tottenham"}],note:"Dynamic, press-resistant attacker."}
+  ],
+  "Belgium":[
+    {name:"Kevin De Bruyne",club:"Napoli",pos:"Midfield",chips:[{v:5,k:"Serie A goals 25-26"},{v:2,k:"Assists 25-26"}],note:"Belgium's maestro; an injury-hit first Napoli season (penalty taker)."},
+    {name:"Jérémy Doku",club:"Man City",pos:"Winger",chips:[{v:41,k:"Caps"}],note:"Electric dribbler; among the best 1v1 wingers in the field."}
+  ],
+  "USA":[
+    {name:"Christian Pulisic",club:"AC Milan",pos:"Forward",chips:[{v:8,k:"Serie A goals 25-26"},{v:4,k:"Assists 25-26"}],note:"Captain America; AC Milan's joint-top scorer and the USA's talisman."},
+    {name:"Weston McKennie",club:"Juventus",pos:"Midfield",chips:[{v:64,k:"Caps"}],note:"All-action, adaptable midfielder in career-best form."}
+  ],
+  "Austria":[
+    {name:"David Alaba",club:"Real Madrid",pos:"Defender",chips:[{v:"Captain",k:"Austria"}],note:"Versatile, decorated defender and leader."},
+    {name:"Marcel Sabitzer",club:"Borussia Dortmund",pos:"Midfield",chips:[{v:"Midfield",k:"Dortmund"}],note:"Goal-scoring central midfielder."}
+  ],
+  "Sweden":[
+    {name:"Alexander Isak",club:"Liverpool",pos:"Striker",chips:[{v:56,k:"Caps"}],note:"Elite finisher; an injury-hit first Liverpool season (4 goals in 21)."},
+    {name:"Viktor Gyökeres",club:"Arsenal",pos:"Striker",chips:[{v:14,k:"PL goals 25-26"},{v:1,k:"Assists 25-26"}],note:"Top scorer in his first Arsenal season (plus cup goals); penalty taker (26/30 career)."}
+  ],
+  "Czechia":[
+    {name:"Patrik Schick",club:"Bayer Leverkusen",pos:"Striker",chips:[{v:"Striker",k:"Leverkusen"}],note:"Czechia's main goal threat."},
+    {name:"Tomáš Souček",club:"West Ham",pos:"Midfield",chips:[{v:"Midfield",k:"West Ham"}],note:"Box-to-box presence and aerial threat."}
+  ],
+  "Iraq":[
+    {name:"Aymen Hussein",club:"—",pos:"Striker",chips:[{v:"Striker",k:"Iraq"}],note:"Main centre-forward; Iraq's first World Cup since 1986."},
+    {name:"Zidane Iqbal",club:"FC Utrecht",pos:"Midfield",chips:[{v:"Midfield",k:"Utrecht"}],note:"Former Man United youngster orchestrating midfield."}
+  ],
+  "Ivory Coast":[
+    {name:"Amad Diallo",club:"Man United",pos:"Forward",chips:[{v:"Forward",k:"Man United"}],note:"Direct, productive wide forward."},
+    {name:"Franck Kessié",club:"Al-Ahli",pos:"Midfield",chips:[{v:"Midfield",k:"Al-Ahli"}],note:"Powerful box-to-box midfielder."}
+  ],
+  "Scotland":[
+    {name:"Scott McTominay",club:"Napoli",pos:"Midfield",chips:[{v:10,k:"Serie A goals 25-26"},{v:3,k:"Assists 25-26"}],note:"10 league goals from midfield; reigning Serie A MVP as Napoli won the title."},
+    {name:"Andrew Robertson",club:"Liverpool",pos:"Left-back",chips:[{v:"Left-back",k:"Liverpool"}],note:"Attacking full-back and experienced leader."}
+  ],
+  "South Korea":[
+    {name:"Son Heung-min",club:"LAFC",pos:"Forward",chips:[{v:9,k:"MLS goals 25"},{v:3,k:"Assists 25"}],note:"9 goals in 10 MLS games after his summer move; 54 international goals and captain."},
+    {name:"Kim Min-jae",club:"Bayern Munich",pos:"Centre-back",chips:[{v:77,k:"Caps"}],note:"Commanding defender; the spine of Korea's back line."}
+  ],
+  "Algeria":[
+    {name:"Riyad Mahrez",club:"Al-Ahli",pos:"Winger",chips:[{v:"Winger",k:"Al-Ahli"}],note:"Algeria's creative star and set-piece threat."},
+    {name:"Ismaël Bennacer",club:"AC Milan",pos:"Midfield",chips:[{v:"Midfield",k:"AC Milan"}],note:"Tempo-setting central midfielder."}
+  ],
+  "Canada":[
+    {name:"Alphonso Davies",club:"Bayern Munich",pos:"Left-back",chips:[{v:58,k:"Caps"}],note:"Canada's most important player; explosive down the left."},
+    {name:"Jonathan David",club:"Juventus",pos:"Striker",chips:[{v:6,k:"Serie A goals 25-26"},{v:4,k:"Assists 25-26"}],note:"Canada's all-time leading scorer (39 intl goals); penalty taker (28/34 career)."}
+  ],
+  "Australia":[
+    {name:"Mat Ryan",club:"—",pos:"Goalkeeper",chips:[{v:"Captain",k:"Australia"}],note:"Experienced goalkeeper and captain."},
+    {name:"Jackson Irvine",club:"St. Pauli",pos:"Midfield",chips:[{v:"Midfield",k:"St. Pauli"}],note:"Energetic, leading box-to-box midfielder."}
+  ],
+  "Iran":[
+    {name:"Mehdi Taremi",club:"Olympiacos",pos:"Striker",chips:[{v:10,k:"Greek goals 25-26"},{v:3,k:"Assists 25-26"}],note:"Iran's talisman; prolific in Greece (penalty taker, 42/49 career)."},
+    {name:"Sardar Azmoun",club:"—",pos:"Forward",chips:[{v:"Forward",k:"Iran"}],note:"Experienced big-game forward."}
+  ],
+  "Paraguay":[
+    {name:"Miguel Almirón",club:"Atlanta United",pos:"Winger",chips:[{v:6,k:"MLS goals 25"},{v:7,k:"Assists 25"}],note:"Captain, penalty taker (6/7 career) and Paraguay's main spark; 9 intl goals."},
+    {name:"Antonio Sanabria",club:"Cremonese",pos:"Striker",chips:[{v:1,k:"Serie A goals 25-26"},{v:1,k:"Assists 25-26"}],note:"Experienced centre-forward; a lean league season (18 Serie A apps)."}
+  ],
+  "Egypt":[
+    {name:"Mohamed Salah",club:"Liverpool",pos:"Forward",chips:[{v:7,k:"PL goals 25-26"},{v:7,k:"Assists 25-26"}],note:"Egypt's all-time great; a quieter league year but the penalty taker (45/55 career)."},
+    {name:"Omar Marmoush",club:"Man City",pos:"Forward",chips:[{v:1,k:"PL goals 25-26"},{v:1,k:"Assists 25-26"}],note:"Pace and movement, but an injury-disrupted season at City (12 PL apps)."}
+  ],
+  "Tunisia":[
+    {name:"Hannibal Mejbri",club:"Burnley",pos:"Midfield",chips:[{v:"Midfield",k:"Burnley"}],note:"Energetic, creative midfielder."},
+    {name:"Ellyes Skhiri",club:"Eintracht Frankfurt",pos:"Midfield",chips:[{v:"Midfield",k:"Frankfurt"}],note:"Reliable two-way midfielder."}
+  ],
+  "Bosnia & Herzegovina":[
+    {name:"Edin Džeko",club:"Fiorentina",pos:"Striker",chips:[{v:"Captain",k:"Bosnia"}],note:"Veteran captain and all-time top scorer."},
+    {name:"Sead Kolašinac",club:"Atalanta",pos:"Defender",chips:[{v:"Defender",k:"Atalanta"}],note:"Combative, experienced defender."}
+  ],
+  "DR Congo":[
+    {name:"Yoane Wissa",club:"Newcastle",pos:"Forward",chips:[{v:"Forward",k:"Newcastle"}],note:"Sharp finisher leading the line."},
+    {name:"Chancel Mbemba",club:"—",pos:"Centre-back",chips:[{v:"Defender",k:"DR Congo"}],note:"Experienced centre-back and leader."}
+  ],
+  "Panama":[
+    {name:"Adalberto Carrasquilla",club:"Pumas",pos:"Midfield",chips:[{v:"Midfield",k:"Pumas"}],note:"Panama's midfield orchestrator."},
+    {name:"Michael Murillo",club:"Marseille",pos:"Right-back",chips:[{v:"Right-back",k:"Marseille"}],note:"Attacking full-back."}
+  ],
+  "Saudi Arabia":[
+    {name:"Salem Al-Dawsari",club:"Al-Hilal",pos:"Winger",chips:[{v:"Winger",k:"Al-Hilal"}],note:"Scored the famous winner over Argentina in 2022."},
+    {name:"Firas Al-Buraikan",club:"Al-Ahli",pos:"Striker",chips:[{v:"Striker",k:"Al-Ahli"}],note:"The Green Falcons' main centre-forward."}
+  ],
+  "Qatar":[
+    {name:"Akram Afif",club:"Al-Sadd",pos:"Forward",chips:[{v:"Asian POTY",k:"recent"}],note:"Qatar's creative star and two-time Asian Cup winner."},
+    {name:"Almoez Ali",club:"Al-Duhail",pos:"Striker",chips:[{v:"Striker",k:"Qatar"}],note:"Record goalscorer and Asian Cup Golden Boot winner."}
+  ],
+  "Uzbekistan":[
+    {name:"Eldor Shomurodov",club:"Roma",pos:"Striker",chips:[{v:"Striker",k:"Roma"}],note:"Talisman on Uzbekistan's first-ever World Cup."},
+    {name:"Abbosbek Faizullaev",club:"CSKA Moscow",pos:"Playmaker",chips:[{v:"Playmaker",k:"CSKA"}],note:"Creative young attacking midfielder."}
+  ],
+  "Jordan":[
+    {name:"Mousa Al-Tamari",club:"—",pos:"Winger",chips:[{v:"Winger",k:"Jordan"}],note:"Star winger on Jordan's first-ever World Cup."},
+    {name:"Yazan Al-Naimat",club:"—",pos:"Striker",chips:[{v:"Striker",k:"Jordan"}],note:"Key forward from the run to the 2023 Asian Cup final."}
+  ],
+  "Cape Verde":[
+    {name:"Jamiro Monteiro",club:"—",pos:"Midfield",chips:[{v:"Midfield",k:"Cape Verde"}],note:"Midfield leader on a historic first World Cup."},
+    {name:"Ryan Mendes",club:"—",pos:"Forward",chips:[{v:"Forward",k:"Cape Verde"}],note:"Experienced attacking talisman."}
+  ],
+  "Curaçao":[
+    {name:"Tahith Chong",club:"Sheffield United",pos:"Winger",chips:[{v:"Winger",k:"Sheffield Utd"}],note:"Curaçao's most recognisable attacker."},
+    {name:"Leandro Bacuna",club:"—",pos:"Midfield",chips:[{v:"Midfield",k:"Curaçao"}],note:"Experienced all-rounder and leader."}
+  ],
+  "Haiti":[
+    {name:"Frantzdy Pierrot",club:"—",pos:"Striker",chips:[{v:"Striker",k:"Haiti"}],note:"Main centre-forward; Haiti's first World Cup since 1974."},
+    {name:"Danley Jean Jacques",club:"—",pos:"Midfield",chips:[{v:"Midfield",k:"Haiti"}],note:"Combative midfield presence."}
+  ],
+  "New Zealand":[
+    {name:"Chris Wood",club:"Nottingham Forest",pos:"Striker",chips:[{v:"Striker",k:"Nottm Forest"}],note:"New Zealand's talisman; a proven Premier League striker."},
+    {name:"Marko Stamenić",club:"—",pos:"Midfield",chips:[{v:"Midfield",k:"New Zealand"}],note:"Young central midfielder."}
+  ]
+};
+
+
+// recent form: left = oldest of the last five, right = most recent. Editable per team.
+const FORM = {
+  "Spain":"WDDW",
+  "Argentina":"WWWWW",
+  "France":"WWWLW",
+  "England":"WDLWW",
+  "Brazil":"DLWWW",
+  "Portugal":"WDWWW",
+  "Colombia":"WLLWW",
+  "Netherlands":"WWDLW",
+  "Ecuador":"WDDWW",
+  "Germany":"WWWWW",
+  "Norway":"WLDWD",
+  "Croatia":"WWLLW",
+  "Switzerland":"DLDWD",
+  "Japan":"WWWWW",
+  "Senegal":"LWWLD",
+  "Morocco":"DWWWD",
+  "Türkiye":"WW",
+  "Ghana":"D",
+  "Belgium":"DWWWW",
+  "USA":"LLWL",
+  "Austria":"W",
+  "Sweden":"DWWLD",
+  "Czechia":"WW",
+  "Iraq":"WD",
+  "Ivory Coast":"W",
+  "Scotland":"WLLWW",
+  "South Korea":"WW",
+  "Algeria":"W",
+  "Canada":"WD",
+  "Australia":"LD",
+  "Iran":"W",
+  "Paraguay":"W",
+  "Egypt":"WL",
+  "Tunisia":"LL",
+  "Bosnia & Herzegovina":"DD",
+  "DR Congo":"DL",
+  "Panama":"LWD",
+  "Saudi Arabia":"LD",
+  "Qatar":"LD",
+  "Uzbekistan":"LL",
+  "Jordan":"LL",
+  "Cape Verde":"W",
+  "Curaçao":"LW",
+  "Haiti":"WW",
+  "New Zealand":"LL",
+  "Mexico":"DDWWW",
+  "South Africa":"LDLDW"
+};
+function fchips(str){
+  str=(str||"").toUpperCase().replace(/[^WDL]/g,"").slice(-5);
+  let h=""; const pad=5-str.length;
+  for(let i=0;i<pad;i++) h+='<span class="fchip n">\u00b7</span>';
+  for(const ch of str){ const cls=ch==="W"?"w":ch==="D"?"d":"l"; h+=`<span class="fchip ${cls}">${ch}</span>`; }
+  return h;
+}
+function formStr(side){
+  const inp=el(side==="A"?"f5A":"f5B").value.trim();
+  const t=byName(el(side==="A"?"teamA":"teamB").value);
+  return inp || FORM[t.n] || "";
+}
+// recent results -> rating nudge (Elo points). Left=oldest, right=newest; newer games weigh more.
+function formAdj(str){
+  const s=(str||"").toUpperCase().replace(/[^WDL]/g,"").slice(-5);
+  if(!s.length) return 0;
+  let num=0, den=0;
+  for(let i=0;i<s.length;i++){ const w=i+1, v=s[i]==="W"?1:s[i]==="L"?-1:0; num+=v*w; den+=w; }
+  return Math.round((num/den)*(s.length/5)*FORM_MAX);   // recency-weighted, damped for short samples
+}
+
+const el = id => document.getElementById(id);
+function byName(n){ return TEAMS.find(t=>t.n===n); }
+function fact(k){ let r=1; for(let i=2;i<=k;i++) r*=i; return r; }
+function pois(k,l){ return Math.exp(-l)*Math.pow(l,k)/fact(k); }
+function expectancy(rA,rB,ha){ return 1/(1+Math.pow(10,-((rA+ha)-rB)/400)); }
+
+function lambdas(atkA,defA,atkB,defB,ha){
+  // home rating bump lifts the home side's attack AND defence (ha signed: +A, -B, 0 neutral)
+  const haA = ha>0? ha : 0, haB = ha<0? -ha : 0;
+  const aA=(atkA+haA-ELOAVG)/ELO_SCALE, dA=(defA+haA-ELOAVG)/ELO_SCALE;
+  const aB=(atkB+haB-ELOAVG)/ELO_SCALE, dB=(defB+haB-ELOAVG)/ELO_SCALE;
+  // each side's expected goals = its attack vs the opponent's defence
+  const lA = G_BASE * Math.exp(ATT_K*aA) * Math.exp(-DEF_K*dB);
+  const lB = G_BASE * Math.exp(ATT_K*aB) * Math.exp(-DEF_K*dA);
+  return [Math.min(Math.max(lA,0.22),G_CAP), Math.min(Math.max(lB,0.22),G_CAP)];
+}
+function tau(x,y,lA,lB){
+  if(x===0&&y===0) return 1 - lA*lB*RHO;
+  if(x===0&&y===1) return 1 + lA*RHO;
+  if(x===1&&y===0) return 1 + lB*RHO;
+  if(x===1&&y===1) return 1 - RHO;
+  return 1;
+}
+function grid(lA,lB){
+  const m=[]; let tot=0;
+  for(let i=0;i<=MAXG;i++){ m[i]=[]; for(let j=0;j<=MAXG;j++){
+    const p=Math.max(tau(i,j,lA,lB),0)*pois(i,lA)*pois(j,lB); m[i][j]=p; tot+=p; } }
+  for(let i=0;i<=MAXG;i++) for(let j=0;j<=MAXG;j++) m[i][j]/=tot;
+  return m;
+}
+const pc = x => (x*100).toFixed(0)+"%";
+const pc1 = x => (x*100).toFixed(1)+"%";
+
+function populate(sel,def){
+  TEAMS.slice().sort((a,b)=>a.n.localeCompare(b.n)).forEach(t=>{
+    const o=document.createElement("option"); o.value=t.n; o.textContent=t.n;
+    if(t.n===def) o.selected=true; sel.appendChild(o);
+  });
+}
+
+function syncAdvanced(){
+  const A=byName(el("teamA").value), B=byName(el("teamB").value);
+  el("advAname").textContent=A.n; el("advBname").textContent=B.n;
+  el("atkA").value=A.a; el("defA").value=A.d;
+  el("atkB").value=B.a; el("defB").value=B.d;
+  el("f5A").value=FORM[A.n]||""; el("f5B").value=FORM[B.n]||"";
+}
+
+function updateVenue(){
+  const A=byName(el("teamA").value), B=byName(el("teamB").value);
+  const aH=HOSTS.has(A.n), bH=HOSTS.has(B.n);
+  el("lblA").textContent=A.c+" at home";
+  el("lblB").textContent=B.c+" at home";
+  el("vA").disabled=!aH; el("vB").disabled=!bH;
+
+  // Keep the current pick if it's still valid; otherwise choose a sensible default.
+  const cur=document.querySelector('input[name=venue]:checked');
+  const curOK = cur && !((cur.value==="A"&&!aH)||(cur.value==="B"&&!bH));
+  let target = curOK ? cur.value : (aH&&!bH ? "A" : bH&&!aH ? "B" : "N");
+  el(target==="A"?"vA":target==="B"?"vB":"vN").checked=true;
+
+  if(!aH&&!bH) el("venuehint").textContent="Neither side is a host — neutral venue.";
+  else if(aH&&bH) el("venuehint").textContent=`${A.c} and ${B.c} are both co-hosts — set whoever's on home soil, or keep neutral.`;
+  else el("venuehint").textContent=`${(aH?A:B).n} are co-hosts — home edge applied. Switch to neutral for a knockout played in another host country.`;
+  compute();
+}
+
+function compute(){
+  const A=byName(el("teamA").value), B=byName(el("teamB").value);
+  const fAauto=formAdj(formStr("A")), fBauto=formAdj(formStr("B"));   // recent results -> rating
+  const fA=(+el("formA").value)+fAauto, fB=(+el("formB").value)+fBauto; // + manual news adjustment
+  const atkA=(+el("atkA").value||A.a)+fA, defA=(+el("defA").value||A.d)+fA;
+  const atkB=(+el("atkB").value||B.a)+fB, defB=(+el("defB").value||B.d)+fB;
+  el("fAauto").textContent=(fAauto>0?"+":"")+fAauto; el("fBauto").textContent=(fBauto>0?"+":"")+fBauto;
+  const hv=+el("homeAdv").value||0;
+  const venue=document.querySelector('input[name=venue]:checked').value;
+  const ha = venue==="A"? hv : venue==="B"? -hv : 0;
+
+  const [lA,lB]=lambdas(atkA,defA,atkB,defB,ha);
+  const m=grid(lA,lB);
+
+  let pA=0,pD=0,pB=0,over=0,btts=0,csA=0,csB=0;
+  let peak={p:-1,i:0,j:0};
+  for(let i=0;i<=MAXG;i++) for(let j=0;j<=MAXG;j++){
+    const p=m[i][j];
+    if(i>j)pA+=p; else if(i<j)pB+=p; else pD+=p;
+    if(i+j>=3)over+=p;
+    if(i>=1&&j>=1)btts+=p;
+    if(j===0)csA+=p;            // A keeps clean sheet => B scores 0
+    if(i===0)csB+=p;
+    if(p>peak.p)peak={p,i,j};
+  }
+
+  // labels
+  el("codeA").textContent=A.c; el("nameA").textContent=A.n;
+  el("codeB").textContent=B.c; el("nameB").textContent=B.n;
+  el("form5A").innerHTML=fchips(formStr("A")); el("form5B").innerHTML=fchips(formStr("B"));
+  el("pctA").textContent=pc(pA); el("pctD").textContent=pc(pD); el("pctB").textContent=pc(pB);
+  el("barA").style.width=pA*100+"%"; el("barD").style.width=pD*100+"%"; el("barB").style.width=pB*100+"%";
+
+  el("xgA").innerHTML=lA.toFixed(2); el("xgB").innerHTML=lB.toFixed(2);
+  el("topScore").textContent=peak.i+"–"+peak.j;
+  el("totGoals").innerHTML=(lA+lB).toFixed(2)+" <small>xG</small>";
+
+  el("over25").textContent=pc(over); el("under25").textContent=pc(1-over);
+  el("bttsY").textContent=pc(btts); el("bttsN").textContent=pc(1-btts);
+  el("csAlbl").textContent=A.c; el("csBlbl").textContent=B.c;
+  el("csA").textContent=pc(csA); el("csB").textContent=pc(csB);
+  el("dcAlbl").textContent=A.c+" / draw"; el("dcBlbl").textContent=B.c+" / draw";
+  el("dcA").textContent=pc(pA+pD); el("dcB").textContent=pc(pB+pD);
+
+  // value finder: store raw probabilities, refresh labels / model% / break-even odds
+  PROB = {wA:pA, dr:pD, wB:pB, over:over, under:1-over,
+          bttsY:btts, bttsN:1-btts, csA:csA, csB:csB, dcA:pA+pD, dcB:pB+pD};
+  EVROWS.forEach(r=>{
+    const p=PROB[r.k];
+    el("lbl_"+r.k).textContent = r.lbl(A,B);
+    el("mp_"+r.k).textContent  = pc(p);
+    el("fp_"+r.k).textContent  = p>0 ? (1/p).toFixed(2) : "—";
+    const inp=el("o_"+r.k); if(inp) inp.placeholder = p>0 ? (1/p).toFixed(2) : "—";
+  });
+  renderEV();
+
+  // heatmap 0..5 for each
+  const g=el("heatgrid"); g.innerHTML="";
+  let maxCell=0; for(let i=0;i<=5;i++) for(let j=0;j<=5;j++) maxCell=Math.max(maxCell,m[i][j]);
+  g.appendChild(corner(""));
+  for(let j=0;j<=5;j++) g.appendChild(corner(j,"hhdr"));   // top header = B goals (columns)
+  for(let i=0;i<=5;i++){
+    g.appendChild(corner(i,"hhdr"));                        // row header = A goals
+    for(let j=0;j<=5;j++){
+      const p=m[i][j], t=p/maxCell;
+      const d=document.createElement("div");
+      d.className="hcell"+(i===peak.i&&j===peak.j?" peak":"");
+      // blend toward A colour when A leads the cell, B colour when B leads, neutral on diagonal
+      const col = i>j? "255,94,58" : i<j? "47,210,196" : "120,130,150";
+      d.style.background=`rgba(${col},${(0.12+0.88*t).toFixed(3)})`;
+      d.textContent=(p*100).toFixed(p>=0.1?0:1);
+      d.title=`${A.c} ${i} – ${j} ${B.c}: ${pc1(p)}`;
+      g.appendChild(d);
+    }
+  }
+  el("heatA").textContent=`${A.c} goals →`;
+  el("heatB").textContent=`↑ ${B.c} goals`;
+
+  renderPlayers(A,B);
+}
+function corner(txt,cls){ const d=document.createElement("div"); d.className=cls||"hhdr"; d.textContent=txt; return d; }
+
+function teamCard(team,side){
+  const list=PLAYERS[team.n];
+  let inner;
+  if(!list){
+    inner=`<div class="pempty">Key players for ${team.n} aren't loaded yet — ask me to add them and I'll pull verified stats.</div>`;
+  } else {
+    inner=list.map(p=>`
+      <div class="pcard">
+        <div class="pname">${p.name}</div>
+        <div class="pmeta">${p.club && p.club!=="—" ? p.club+" · " : ""}${p.pos}</div>
+        <div class="pchips">${p.chips.map(c=>`<div class="pchip"><span class="pv">${c.v}</span><span class="pk">${c.k}</span></div>`).join("")}</div>
+        ${p.note?`<div class="pnote">${p.note}</div>`:""}
+      </div>`).join("");
+  }
+  return `<div class="pteam ${side}"><h5>${team.c} — key players</h5>${inner}</div>`;
+}
+function renderPlayers(A,B){ el("players").innerHTML = teamCard(A,"a")+teamCard(B,"b"); }
+
+// ---- value finder (EV) ----
+let PROB={};
+const EVROWS=[
+  {k:"wA",   g:"A", lbl:(A,B)=>A.c+" win"},
+  {k:"dr",   g:"",  lbl:(A,B)=>"Draw"},
+  {k:"wB",   g:"B", lbl:(A,B)=>B.c+" win"},
+  {k:"over", g:"",  lbl:(A,B)=>"Over 2.5 goals"},
+  {k:"under",g:"",  lbl:(A,B)=>"Under 2.5 goals"},
+  {k:"bttsY",g:"",  lbl:(A,B)=>"Both teams score \u2014 yes"},
+  {k:"bttsN",g:"",  lbl:(A,B)=>"Both teams score \u2014 no"},
+  {k:"csA",  g:"A", lbl:(A,B)=>A.c+" clean sheet"},
+  {k:"csB",  g:"B", lbl:(A,B)=>B.c+" clean sheet"},
+  {k:"dcA",  g:"A", lbl:(A,B)=>A.c+" or draw"},
+  {k:"dcB",  g:"B", lbl:(A,B)=>B.c+" or draw"},
+];
+function createEV(){
+  const tb=el("evbody"); tb.innerHTML="";
+  EVROWS.forEach(r=>{
+    const tr=document.createElement("tr");
+    tr.className = r.g==="A"?"gA":r.g==="B"?"gB":"";
+    tr.innerHTML =
+      `<td id="lbl_${r.k}">\u2014</td>`+
+      `<td><span class="mp" id="mp_${r.k}">\u2014</span></td>`+
+      `<td><span class="fair" id="fp_${r.k}">\u2014</span></td>`+
+      `<td><input class="odds" id="o_${r.k}" type="number" inputmode="decimal" step="0.01" min="1" placeholder="\u2014"></td>`+
+      `<td><span class="ev" id="ev_${r.k}">\u2014</span></td>`;
+    tb.appendChild(tr);
+  });
+  tb.addEventListener("input",e=>{ if(e.target.classList.contains("odds")) renderEV(); });
+}
+function renderEV(){
+  EVROWS.forEach(r=>{
+    const inp=el("o_"+r.k), out=el("ev_"+r.k); if(!inp||!out) return;
+    const o=parseFloat(inp.value), p=PROB[r.k];
+    if(!o||o<=1||p==null){ out.textContent="\u2014"; out.className="ev"; return; }
+    const ev=p*o-1;
+    out.textContent=(ev>=0?"+":"")+(ev*100).toFixed(1)+"%";
+    out.className="ev"+(ev>0.0001?" pos":ev<-0.0001?" neg":"");
+  });
+}
+
+// ---- external data loader (enables hands-off daily updates via data.json) ----
+function applyStyle(){ TEAMS.forEach(t=>{ const k=STYLE[t.n]||0; t.a=t.e+k; t.d=t.e-k; }); }
+function stampDate(iso){
+  try{
+    const d=new Date(iso);
+    const s=d.toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"})+
+            " "+d.toLocaleTimeString(undefined,{hour:"2-digit",minute:"2-digit"});
+    el("dataStamp").innerHTML="Auto-updated <b>"+s+"</b> · live results feed";
+  }catch(e){}
+}
+function loadData(){
+  return fetch("data.json",{cache:"no-store"})
+    .then(r=> r.ok ? r.json() : Promise.reject("no data.json"))
+    .then(d=>{
+      if(d && d.teams){
+        for(const t of TEAMS){
+          const u=d.teams[t.n]; if(!u) continue;
+          if(typeof u.e==="number") t.e=u.e;
+          if(u.form!=null) FORM[t.n]=u.form;
+        }
+        applyStyle();                       // re-derive attack/defence from updated overall ratings
+      }
+      if(d && d.updated) stampDate(d.updated);
+    })
+    .catch(()=>{ /* file://, offline, or no data.json yet -> keep built-in defaults */ });
+}
+
+// init
+function boot(){
+  populate(el("teamA"),"Mexico");
+  populate(el("teamB"),"South Africa");
+  createEV();
+  syncAdvanced(); updateVenue();   // Mexico are hosts -> defaults to home
+}
+
+el("teamA").addEventListener("change",()=>{syncAdvanced();updateVenue();});
+el("teamB").addEventListener("change",()=>{syncAdvanced();updateVenue();});
+document.querySelectorAll('input[name=venue]').forEach(r=>r.addEventListener("change",compute));
+["atkA","defA","atkB","defB","homeAdv"].forEach(id=>el(id).addEventListener("input",compute));
+["f5A","f5B"].forEach(id=>el(id).addEventListener("input",compute));
+el("formA").addEventListener("input",()=>{el("formAval").textContent=(el("formA").value>0?"+":"")+el("formA").value;compute();});
+el("formB").addEventListener("input",()=>{el("formBval").textContent=(el("formB").value>0?"+":"")+el("formB").value;compute();});
+el("advBtn").addEventListener("click",()=>{
+  const o=el("advPanel").classList.toggle("open");
+  el("advBtn").setAttribute("aria-expanded",o);
+  el("advBtn").innerHTML="Adjust ratings &amp; form "+(o?"▴":"▾");
+});
+
+loadData().then(boot);   // try live data first, then render (falls back to built-ins)
+</script>
+</body>
+</html>
