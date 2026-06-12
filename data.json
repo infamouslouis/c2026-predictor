@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-12T11:22:23.969Z",
-  "source": "seed (pre-tournament baseline)",
-  "note": "Overwritten by the daily GitHub Action once it runs.",
+  "updated": "2026-06-12T13:11:04.585Z",
+  "source": "football-data.org WC",
+  "matches": 2,
   "teams": {
     "Spain": {
       "e": 2157,
@@ -84,8 +84,8 @@
       "form": "DWWWW"
     },
     "Mexico": {
-      "e": 1800,
-      "form": "DDWWW"
+      "e": 1815,
+      "form": "DWWWW"
     },
     "USA": {
       "e": 1788,
@@ -100,8 +100,8 @@
       "form": "DWWLD"
     },
     "Czechia": {
-      "e": 1762,
-      "form": "WW"
+      "e": 1743,
+      "form": "WWL"
     },
     "Iraq": {
       "e": 1490,
@@ -116,8 +116,8 @@
       "form": "WLLWW"
     },
     "South Korea": {
-      "e": 1740,
-      "form": "WW"
+      "e": 1759,
+      "form": "WWW"
     },
     "Algeria": {
       "e": 1738,
@@ -160,8 +160,8 @@
       "form": "LWD"
     },
     "South Africa": {
-      "e": 1640,
-      "form": "LDLDW"
+      "e": 1625,
+      "form": "DLDWL"
     },
     "Saudi Arabia": {
       "e": 1620,
