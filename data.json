@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-12T18:10:58.833Z",
+  "updated": "2026-06-13T04:12:54.026Z",
   "source": "football-data.org WC",
-  "matches": 2,
+  "matches": 4,
   "teams": {
     "Spain": {
       "e": 2157,
@@ -88,8 +88,8 @@
       "form": "DWWWW"
     },
     "USA": {
-      "e": 1788,
-      "form": "LLWL"
+      "e": 1812,
+      "form": "LLWLW"
     },
     "Austria": {
       "e": 1788,
@@ -124,8 +124,8 @@
       "form": "W"
     },
     "Canada": {
-      "e": 1728,
-      "form": "WD"
+      "e": 1726,
+      "form": "WDD"
     },
     "Australia": {
       "e": 1715,
@@ -136,8 +136,8 @@
       "form": "W"
     },
     "Paraguay": {
-      "e": 1700,
-      "form": "W"
+      "e": 1676,
+      "form": "WL"
     },
     "Egypt": {
       "e": 1700,
@@ -148,8 +148,8 @@
       "form": "LL"
     },
     "Bosnia & Herzegovina": {
-      "e": 1690,
-      "form": "DD"
+      "e": 1692,
+      "form": "DDD"
     },
     "DR Congo": {
       "e": 1680,
