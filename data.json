@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-14T04:40:17.935Z",
+  "updated": "2026-06-14T10:51:27.038Z",
   "source": "football-data.org WC",
-  "matches": 7,
+  "matches": 8,
   "teams": {
     "Spain": {
       "e": 2157,
@@ -72,8 +72,8 @@
       "form": "WWWDD"
     },
     "Türkiye": {
-      "e": 1860,
-      "form": "WW"
+      "e": 1822,
+      "form": "WWL"
     },
     "Ghana": {
       "e": 1650,
@@ -128,8 +128,8 @@
       "form": "WDD"
     },
     "Australia": {
-      "e": 1715,
-      "form": "LD"
+      "e": 1753,
+      "form": "LDW"
     },
     "Iran": {
       "e": 1702,
