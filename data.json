@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-13T17:27:15.984Z",
+  "updated": "2026-06-14T04:40:17.935Z",
   "source": "football-data.org WC",
-  "matches": 4,
+  "matches": 7,
   "teams": {
     "Spain": {
       "e": 2157,
@@ -20,8 +20,8 @@
       "form": "WDLWW"
     },
     "Brazil": {
-      "e": 1991,
-      "form": "DLWWW"
+      "e": 1984,
+      "form": "LWWWD"
     },
     "Portugal": {
       "e": 1989,
@@ -52,8 +52,8 @@
       "form": "WWLLW"
     },
     "Switzerland": {
-      "e": 1895,
-      "form": "DLDWD"
+      "e": 1883,
+      "form": "LDWDD"
     },
     "Uruguay": {
       "e": 1888,
@@ -68,8 +68,8 @@
       "form": "LWWLD"
     },
     "Morocco": {
-      "e": 1858,
-      "form": "DWWWD"
+      "e": 1865,
+      "form": "WWWDD"
     },
     "Türkiye": {
       "e": 1860,
@@ -112,8 +112,8 @@
       "form": "W"
     },
     "Scotland": {
-      "e": 1742,
-      "form": "WLLWW"
+      "e": 1749,
+      "form": "LLWWW"
     },
     "South Korea": {
       "e": 1759,
@@ -168,8 +168,8 @@
       "form": "LD"
     },
     "Qatar": {
-      "e": 1620,
-      "form": "LD"
+      "e": 1632,
+      "form": "LDD"
     },
     "Uzbekistan": {
       "e": 1585,
@@ -188,8 +188,8 @@
       "form": "LW"
     },
     "Haiti": {
-      "e": 1500,
-      "form": "WW"
+      "e": 1493,
+      "form": "WWL"
     },
     "New Zealand": {
       "e": 1500,
