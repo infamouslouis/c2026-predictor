@@ -161,6 +161,24 @@
   .evnote .pos{color:#2ecc71;font-weight:600} .evnote .neg{color:#e0524d;font-weight:600}
   .evnote b{color:var(--muted);font-weight:600}
 
+  /* ---- track record ---- */
+  .trackwrap{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
+  .trackstats{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+  .tstat{flex:1;min-width:120px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+  .tstat .big{font-family:Anton;font-weight:400;font-size:24px;line-height:1}
+  .tstat .lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+  .tstat .sub{font-size:10.5px;color:var(--faint);margin-top:3px;line-height:1.4}
+  .tlist{max-height:300px;overflow-y:auto;border-top:1px solid var(--line)}
+  .trow{display:flex;align-items:center;gap:10px;padding:8px 2px;border-bottom:1px solid var(--line);font-size:12.5px}
+  .trow .res{flex:1;color:var(--ink)}
+  .trow .res b{font-variant-numeric:tabular-nums}
+  .trow .pred{color:var(--faint);white-space:nowrap;font-size:11.5px}
+  .trow .mk{font-family:Anton;font-weight:400;font-size:13px;width:16px;text-align:center;flex:none}
+  .trow .mk.y{color:#2ecc71} .trow .mk.n{color:#e0524d} .trow .mk.dot{color:var(--faint)}
+  .tnote{font-size:11px;color:var(--faint);line-height:1.55;margin-top:11px}
+  .tnote b{color:var(--muted)}
+  .tempty{font-size:12.5px;color:var(--faint);padding:6px 0}
+
   /* ---- heatmap ---- */
   .heat{margin-top:14px;background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);
      padding:18px;overflow-x:auto}
@@ -326,6 +344,9 @@
     <div class="heatgrid" id="heatgrid"></div>
     <div class="heataxis"><span class="axa" id="heatA">A goals →</span><span class="axb" id="heatB">↑ rows: B goals</span></div>
   </div>
+
+  <div class="section-h">Track record · how the model is doing</div>
+  <div class="trackwrap" id="trackwrap"></div>
 
   <p class="foot">
     <b>Player stats.</b> All 48 teams are loaded with two key players each. Numbers are the 2025-26 club season (all competitions) unless labelled otherwise — "Intl" is international career, "Caps" is international appearances. For some smaller nations a clean season figure wasn't reliably available, so the chip shows role/club instead of a fabricated number. Compiled from public previews and fully editable.
@@ -859,6 +880,7 @@ function renderEV(){
 }
 
 // ---- external data loader (enables hands-off daily updates via data.json) ----
+let TRACK=null;
 function applyStyle(){ TEAMS.forEach(t=>{ const k=STYLE[t.n]||0; t.a=t.e+k; t.d=t.e-k; }); }
 function stampDate(iso){
   try{
@@ -881,16 +903,42 @@ function loadData(){
         applyStyle();                       // re-derive attack/defence from updated overall ratings
       }
       if(d && d.updated) stampDate(d.updated);
+      if(d && d.track) TRACK=d.track;
     })
     .catch(()=>{ /* file://, offline, or no data.json yet -> keep built-in defaults */ });
 }
 
 // init
+function renderTrack(){
+  const w=el("trackwrap"); if(!w) return;
+  if(!TRACK || !TRACK.played){ w.innerHTML='<div class="tempty">No finished matches logged yet — this fills in automatically as games kick off.</div>'; return; }
+  const t=TRACK, code=n=>{const tm=byName(n); return tm?tm.c:n;};
+  const pct=(h,n)=> n? Math.round(100*h/n)+"%" : "—";
+  let rows="";
+  for(const m of [...t.matches].reverse()){
+    const pickCode = m.pick==="draw" ? "Draw" : code(m.pick==="home"?m.home:m.away);
+    rows+=`<div class="trow">`+
+      `<span class="res"><b>${code(m.home)} ${m.hg}\u2013${m.ag} ${code(m.away)}</b></span>`+
+      `<span class="pred">tip: ${pickCode} ${m.topH}\u2013${m.topA}</span>`+
+      `<span class="mk ${m.oHit?'y':'n'}">${m.oHit?'\u2713':'\u2717'}</span>`+
+      `<span class="mk ${m.sHit?'y':'dot'}">${m.sHit?'\u2713':'\u00b7'}</span>`+
+    `</div>`;
+  }
+  w.innerHTML=
+    `<div class="trackstats">`+
+      `<div class="tstat"><div class="big">${t.outcomeHits}/${t.played}</div><div class="lbl">Result called</div><div class="sub">${pct(t.outcomeHits,t.played)} of matches</div></div>`+
+      `<div class="tstat"><div class="big">${t.scoreHits}/${t.played}</div><div class="lbl">Exact score</div><div class="sub">${pct(t.scoreHits,t.played)} · any one score is only ~12%</div></div>`+
+      `<div class="tstat"><div class="big">${t.brier!=null?t.brier:'\u2014'}</div><div class="lbl">Brier score</div><div class="sub">lower is better · ~0.66 = no skill</div></div>`+
+    `</div>`+
+    `<div class="tlist">${rows}</div>`+
+    `<div class="tnote">Each pick is captured at <b>kickoff</b>, before the result is known, then checked against what happened — so it can't flatter itself with hindsight. The two marks per row are <b>result</b> (called the winner or draw) and <b>exact score</b>. Updates automatically every refresh. Small samples swing hard — judge it over dozens of games, not a handful.</div>`;
+}
 function boot(){
   populate(el("teamA"),"Mexico");
   populate(el("teamB"),"South Africa");
   createEV();
   syncAdvanced(); updateVenue();   // Mexico are hosts -> defaults to home
+  renderTrack();
 }
 
 el("teamA").addEventListener("change",()=>{syncAdvanced();updateVenue();});

@@ -1,8 +1,10 @@
 [
-  {"date":"2026-06-11T19:00:00Z","home":"Mexico","away":"South Africa","hg":3,"ag":1},
-  {"date":"2026-06-12T23:00:00Z","home":"USA","away":"Paraguay","hg":2,"ag":0},
-  {"date":"2026-06-13T20:00:00Z","home":"Brazil","away":"Morocco","hg":1,"ag":1},
-  {"date":"2026-06-14T18:00:00Z","home":"Germany","away":"Netherlands","hg":2,"ag":2},
-  {"date":"2026-06-15T22:00:00Z","home":"Spain","away":"Haiti","hg":4,"ag":0},
-  {"date":"2026-06-18T19:00:00Z","home":"South Africa","away":"Mexico","hg":2,"ag":2}
+  {"date":"2026-06-11T19:00:00Z","home":"Mexico","away":"South Africa","hg":2,"ag":0},
+  {"date":"2026-06-12T20:00:00Z","home":"South Korea","away":"Czechia","hg":2,"ag":1},
+  {"date":"2026-06-12T23:00:00Z","home":"Canada","away":"Bosnia & Herzegovina","hg":1,"ag":1},
+  {"date":"2026-06-13T19:00:00Z","home":"USA","away":"Paraguay","hg":4,"ag":1},
+  {"date":"2026-06-13T20:00:00Z","home":"Qatar","away":"Switzerland","hg":1,"ag":1},
+  {"date":"2026-06-13T22:00:00Z","home":"Brazil","away":"Morocco","hg":1,"ag":1},
+  {"date":"2026-06-13T23:30:00Z","home":"Haiti","away":"Scotland","hg":0,"ag":1},
+  {"date":"2026-06-14T00:00:00Z","home":"Australia","away":"Türkiye","hg":2,"ag":0}
 ]
