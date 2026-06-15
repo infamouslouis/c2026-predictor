@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-15T04:53:44.712Z",
+  "updated": "2026-06-15T14:33:05.997Z",
   "source": "football-data.org WC",
-  "matches": 11,
+  "matches": 12,
   "teams": {
     "Spain": {
       "e": 2157,
@@ -36,8 +36,8 @@
       "form": "WDLWD"
     },
     "Ecuador": {
-      "e": 1938,
-      "form": "WDDWW"
+      "e": 1911,
+      "form": "DDWWL"
     },
     "Germany": {
       "e": 1938,
@@ -108,8 +108,8 @@
       "form": "WD"
     },
     "Ivory Coast": {
-      "e": 1748,
-      "form": "W"
+      "e": 1775,
+      "form": "WW"
     },
     "Scotland": {
       "e": 1749,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 11,
+    "played": 12,
     "outcomeHits": 5,
     "scoreHits": 3,
-    "brier": 0.609,
+    "brier": 0.674,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -349,6 +349,21 @@
         "pA": 0.311,
         "topH": 1,
         "topA": 1,
+        "oHit": false,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-14T23:00:00Z",
+        "home": "Ivory Coast",
+        "away": "Ecuador",
+        "hg": 1,
+        "ag": 0,
+        "pick": "away",
+        "pH": 0.092,
+        "pD": 0.188,
+        "pA": 0.72,
+        "topH": 0,
+        "topA": 2,
         "oHit": false,
         "sHit": false
       },
