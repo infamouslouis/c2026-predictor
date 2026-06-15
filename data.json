@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-14T17:23:38.706Z",
+  "updated": "2026-06-15T04:53:44.712Z",
   "source": "football-data.org WC",
-  "matches": 8,
+  "matches": 11,
   "teams": {
     "Spain": {
       "e": 2157,
@@ -32,15 +32,15 @@
       "form": "WLLWW"
     },
     "Netherlands": {
-      "e": 1948,
-      "form": "WWDLW"
+      "e": 1944,
+      "form": "WDLWD"
     },
     "Ecuador": {
       "e": 1938,
       "form": "WDDWW"
     },
     "Germany": {
-      "e": 1932,
+      "e": 1938,
       "form": "WWWWW"
     },
     "Norway": {
@@ -60,8 +60,8 @@
       "form": ""
     },
     "Japan": {
-      "e": 1879,
-      "form": "WWWWW"
+      "e": 1883,
+      "form": "WWWWD"
     },
     "Senegal": {
       "e": 1869,
@@ -96,8 +96,8 @@
       "form": "W"
     },
     "Sweden": {
-      "e": 1770,
-      "form": "DWWLD"
+      "e": 1796,
+      "form": "WWLDW"
     },
     "Czechia": {
       "e": 1743,
@@ -144,8 +144,8 @@
       "form": "WL"
     },
     "Tunisia": {
-      "e": 1690,
-      "form": "LL"
+      "e": 1664,
+      "form": "LLL"
     },
     "Bosnia & Herzegovina": {
       "e": 1692,
@@ -184,8 +184,8 @@
       "form": "W"
     },
     "Curaçao": {
-      "e": 1505,
-      "form": "LW"
+      "e": 1499,
+      "form": "LWL"
     },
     "Haiti": {
       "e": 1493,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 8,
-    "outcomeHits": 3,
+    "played": 11,
+    "outcomeHits": 5,
     "scoreHits": 3,
-    "brier": 0.7,
+    "brier": 0.609,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -320,6 +320,51 @@
         "topH": 0,
         "topA": 2,
         "oHit": false,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-14T17:00:00Z",
+        "home": "Germany",
+        "away": "Curaçao",
+        "hg": 7,
+        "ag": 1,
+        "pick": "home",
+        "pH": 0.951,
+        "pD": 0.04,
+        "pA": 0.009,
+        "topH": 4,
+        "topA": 0,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-14T20:00:00Z",
+        "home": "Netherlands",
+        "away": "Japan",
+        "hg": 2,
+        "ag": 2,
+        "pick": "home",
+        "pH": 0.397,
+        "pD": 0.292,
+        "pA": 0.311,
+        "topH": 1,
+        "topA": 1,
+        "oHit": false,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-15T02:00:00Z",
+        "home": "Sweden",
+        "away": "Tunisia",
+        "hg": 5,
+        "ag": 1,
+        "pick": "home",
+        "pH": 0.524,
+        "pD": 0.273,
+        "pA": 0.203,
+        "topH": 1,
+        "topA": 1,
+        "oHit": true,
         "sHit": false
       }
     ]
