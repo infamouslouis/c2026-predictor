@@ -1,19 +1,19 @@
 {
-  "updated": "2026-06-16T19:41:04.352Z",
+  "updated": "2026-06-17T04:40:46.337Z",
   "source": "football-data.org WC",
-  "matches": 16,
+  "matches": 18,
   "teams": {
     "Spain": {
       "e": 2157,
       "form": "WDDW"
     },
     "Argentina": {
-      "e": 2115,
+      "e": 2121,
       "form": "WWWWW"
     },
     "France": {
-      "e": 2063,
-      "form": "WWWLW"
+      "e": 2076,
+      "form": "WWLWW"
     },
     "England": {
       "e": 2024,
@@ -44,8 +44,8 @@
       "form": "WWWWW"
     },
     "Norway": {
-      "e": 1914,
-      "form": "WLDWD"
+      "e": 1919,
+      "form": "LDWDW"
     },
     "Croatia": {
       "e": 1912,
@@ -64,8 +64,8 @@
       "form": "WWWWD"
     },
     "Senegal": {
-      "e": 1869,
-      "form": "LWWLD"
+      "e": 1856,
+      "form": "WWLDL"
     },
     "Morocco": {
       "e": 1865,
@@ -104,8 +104,8 @@
       "form": "WWL"
     },
     "Iraq": {
-      "e": 1490,
-      "form": "WD"
+      "e": 1485,
+      "form": "WDL"
     },
     "Ivory Coast": {
       "e": 1775,
@@ -120,12 +120,12 @@
       "form": "WWW"
     },
     "Algeria": {
-      "e": 1738,
-      "form": "W"
+      "e": 1732,
+      "form": "WL"
     },
     "Canada": {
-      "e": 1726,
-      "form": "WDD"
+      "e": 1728,
+      "form": "WD"
     },
     "Australia": {
       "e": 1753,
@@ -148,8 +148,8 @@
       "form": "LLL"
     },
     "Bosnia & Herzegovina": {
-      "e": 1692,
-      "form": "DDD"
+      "e": 1690,
+      "form": "DD"
     },
     "DR Congo": {
       "e": 1680,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 15,
-    "outcomeHits": 5,
+    "played": 17,
+    "outcomeHits": 8,
     "scoreHits": 3,
-    "brier": 0.784,
+    "brier": 0.647,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -231,21 +231,6 @@
         "topA": 1,
         "oHit": false,
         "sHit": false
-      },
-      {
-        "date": "2026-06-12T19:00:00Z",
-        "home": "Canada",
-        "away": "Bosnia & Herzegovina",
-        "hg": 1,
-        "ag": 1,
-        "pick": "home",
-        "pH": 0.558,
-        "pD": 0.252,
-        "pA": 0.19,
-        "topH": 1,
-        "topA": 1,
-        "oHit": false,
-        "sHit": true
       },
       {
         "date": "2026-06-13T01:00:00Z",
@@ -426,6 +411,51 @@
         "topA": 0,
         "oHit": false,
         "sHit": false
+      },
+      {
+        "date": "2026-06-16T19:00:00Z",
+        "home": "France",
+        "away": "Senegal",
+        "hg": 3,
+        "ag": 1,
+        "pick": "home",
+        "pH": 0.719,
+        "pD": 0.19,
+        "pA": 0.091,
+        "topH": 2,
+        "topA": 0,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-16T22:00:00Z",
+        "home": "Iraq",
+        "away": "Norway",
+        "hg": 1,
+        "ag": 4,
+        "pick": "away",
+        "pH": 0.011,
+        "pD": 0.044,
+        "pA": 0.945,
+        "topH": 0,
+        "topA": 4,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-17T01:00:00Z",
+        "home": "Argentina",
+        "away": "Algeria",
+        "hg": 3,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.931,
+        "pD": 0.057,
+        "pA": 0.012,
+        "topH": 3,
+        "topA": 0,
+        "oHit": true,
+        "sHit": true
       }
     ]
   }
