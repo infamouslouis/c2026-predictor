@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-17T04:40:46.337Z",
+  "updated": "2026-06-17T12:20:54.943Z",
   "source": "football-data.org WC",
-  "matches": 18,
+  "matches": 20,
   "teams": {
     "Spain": {
       "e": 2157,
@@ -92,8 +92,8 @@
       "form": "LLWLW"
     },
     "Austria": {
-      "e": 1788,
-      "form": "W"
+      "e": 1800,
+      "form": "WW"
     },
     "Sweden": {
       "e": 1796,
@@ -124,8 +124,8 @@
       "form": "WL"
     },
     "Canada": {
-      "e": 1728,
-      "form": "WD"
+      "e": 1726,
+      "form": "WDD"
     },
     "Australia": {
       "e": 1753,
@@ -148,8 +148,8 @@
       "form": "LLL"
     },
     "Bosnia & Herzegovina": {
-      "e": 1690,
-      "form": "DD"
+      "e": 1692,
+      "form": "DDD"
     },
     "DR Congo": {
       "e": 1680,
@@ -176,8 +176,8 @@
       "form": "LL"
     },
     "Jordan": {
-      "e": 1565,
-      "form": "LL"
+      "e": 1553,
+      "form": "LLL"
     },
     "Cape Verde": {
       "e": 1560,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 17,
-    "outcomeHits": 8,
-    "scoreHits": 3,
-    "brier": 0.647,
+    "played": 19,
+    "outcomeHits": 9,
+    "scoreHits": 4,
+    "brier": 0.63,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -231,6 +231,21 @@
         "topA": 1,
         "oHit": false,
         "sHit": false
+      },
+      {
+        "date": "2026-06-12T19:00:00Z",
+        "home": "Canada",
+        "away": "Bosnia & Herzegovina",
+        "hg": 1,
+        "ag": 1,
+        "pick": "home",
+        "pH": 0.558,
+        "pD": 0.252,
+        "pA": 0.19,
+        "topH": 1,
+        "topA": 1,
+        "oHit": false,
+        "sHit": true
       },
       {
         "date": "2026-06-13T01:00:00Z",
@@ -456,6 +471,21 @@
         "topA": 0,
         "oHit": true,
         "sHit": true
+      },
+      {
+        "date": "2026-06-17T04:00:00Z",
+        "home": "Austria",
+        "away": "Jordan",
+        "hg": 3,
+        "ag": 1,
+        "pick": "home",
+        "pH": 0.791,
+        "pD": 0.145,
+        "pA": 0.064,
+        "topH": 2,
+        "topA": 0,
+        "oHit": true,
+        "sHit": false
       }
     ]
   }
