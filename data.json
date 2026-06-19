@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-18T18:28:39.723Z",
+  "updated": "2026-06-19T04:51:27.627Z",
   "source": "football-data.org WC",
-  "matches": 25,
+  "matches": 28,
   "teams": {
     "Spain": {
       "e": 2157,
@@ -52,8 +52,8 @@
       "form": "WLLWL"
     },
     "Switzerland": {
-      "e": 1883,
-      "form": "LDWDD"
+      "e": 1899,
+      "form": "DWDDW"
     },
     "Uruguay": {
       "e": 1876,
@@ -84,8 +84,8 @@
       "form": "WWWWD"
     },
     "Mexico": {
-      "e": 1815,
-      "form": "DWWWW"
+      "e": 1830,
+      "form": "WWWWW"
     },
     "USA": {
       "e": 1812,
@@ -116,16 +116,16 @@
       "form": "LLWWW"
     },
     "South Korea": {
-      "e": 1759,
-      "form": "WWW"
+      "e": 1744,
+      "form": "WWWL"
     },
     "Algeria": {
       "e": 1732,
       "form": "WL"
     },
     "Canada": {
-      "e": 1726,
-      "form": "WDD"
+      "e": 1754,
+      "form": "WDDW"
     },
     "Australia": {
       "e": 1753,
@@ -148,8 +148,8 @@
       "form": "LLL"
     },
     "Bosnia & Herzegovina": {
-      "e": 1692,
-      "form": "DDD"
+      "e": 1676,
+      "form": "DDDL"
     },
     "DR Congo": {
       "e": 1693,
@@ -168,8 +168,8 @@
       "form": "LDD"
     },
     "Qatar": {
-      "e": 1632,
-      "form": "LDD"
+      "e": 1604,
+      "form": "LDDL"
     },
     "Uzbekistan": {
       "e": 1580,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 24,
-    "outcomeHits": 12,
+    "played": 27,
+    "outcomeHits": 15,
     "scoreHits": 5,
-    "brier": 0.649,
+    "brier": 0.598,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -561,6 +561,51 @@
         "topA": 1,
         "oHit": false,
         "sHit": true
+      },
+      {
+        "date": "2026-06-18T19:00:00Z",
+        "home": "Switzerland",
+        "away": "Bosnia & Herzegovina",
+        "hg": 4,
+        "ag": 1,
+        "pick": "home",
+        "pH": 0.685,
+        "pD": 0.209,
+        "pA": 0.106,
+        "topH": 2,
+        "topA": 0,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-18T22:00:00Z",
+        "home": "Canada",
+        "away": "Qatar",
+        "hg": 6,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.663,
+        "pD": 0.211,
+        "pA": 0.126,
+        "topH": 2,
+        "topA": 0,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-19T01:00:00Z",
+        "home": "Mexico",
+        "away": "South Korea",
+        "hg": 1,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.589,
+        "pD": 0.253,
+        "pA": 0.158,
+        "topH": 1,
+        "topA": 1,
+        "oHit": true,
+        "sHit": false
       }
     ]
   }
