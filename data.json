@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-19T18:02:33.304Z",
+  "updated": "2026-06-20T04:06:28.880Z",
   "source": "football-data.org WC",
-  "matches": 28,
+  "matches": 31,
   "teams": {
     "Spain": {
       "e": 2157,
@@ -20,8 +20,8 @@
       "form": "DLWWW"
     },
     "Brazil": {
-      "e": 1984,
-      "form": "LWWWD"
+      "e": 1988,
+      "form": "WWWDW"
     },
     "Portugal": {
       "e": 1976,
@@ -68,8 +68,8 @@
       "form": "WWLDL"
     },
     "Morocco": {
-      "e": 1865,
-      "form": "WWWDD"
+      "e": 1877,
+      "form": "WWDDW"
     },
     "Türkiye": {
       "e": 1822,
@@ -88,8 +88,8 @@
       "form": "WWWWW"
     },
     "USA": {
-      "e": 1812,
-      "form": "LLWLW"
+      "e": 1834,
+      "form": "LWLWW"
     },
     "Austria": {
       "e": 1800,
@@ -112,8 +112,8 @@
       "form": "WW"
     },
     "Scotland": {
-      "e": 1749,
-      "form": "LLWWW"
+      "e": 1737,
+      "form": "LWWWL"
     },
     "South Korea": {
       "e": 1744,
@@ -128,8 +128,8 @@
       "form": "WDDW"
     },
     "Australia": {
-      "e": 1753,
-      "form": "LDW"
+      "e": 1730,
+      "form": "LDWL"
     },
     "Iran": {
       "e": 1693,
@@ -188,8 +188,8 @@
       "form": "LWL"
     },
     "Haiti": {
-      "e": 1493,
-      "form": "WWL"
+      "e": 1489,
+      "form": "WWLL"
     },
     "New Zealand": {
       "e": 1509,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 27,
-    "outcomeHits": 15,
+    "played": 30,
+    "outcomeHits": 18,
     "scoreHits": 5,
-    "brier": 0.598,
+    "brier": 0.56,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -604,6 +604,51 @@
         "pA": 0.158,
         "topH": 1,
         "topA": 1,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-19T19:00:00Z",
+        "home": "USA",
+        "away": "Australia",
+        "hg": 2,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.56,
+        "pD": 0.259,
+        "pA": 0.181,
+        "topH": 1,
+        "topA": 1,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-19T22:00:00Z",
+        "home": "Scotland",
+        "away": "Morocco",
+        "hg": 0,
+        "ag": 1,
+        "pick": "away",
+        "pH": 0.199,
+        "pD": 0.283,
+        "pA": 0.518,
+        "topH": 1,
+        "topA": 1,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-20T00:30:00Z",
+        "home": "Brazil",
+        "away": "Haiti",
+        "hg": 3,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.957,
+        "pD": 0.036,
+        "pA": 0.007,
+        "topH": 4,
+        "topA": 0,
         "oHit": true,
         "sHit": false
       }
