@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-20T04:06:28.880Z",
+  "updated": "2026-06-20T10:35:49.527Z",
   "source": "football-data.org WC",
-  "matches": 31,
+  "matches": 32,
   "teams": {
     "Spain": {
       "e": 2157,
@@ -72,8 +72,8 @@
       "form": "WWDDW"
     },
     "Türkiye": {
-      "e": 1822,
-      "form": "WWL"
+      "e": 1797,
+      "form": "WWLL"
     },
     "Ghana": {
       "e": 1668,
@@ -136,8 +136,8 @@
       "form": "WD"
     },
     "Paraguay": {
-      "e": 1676,
-      "form": "WL"
+      "e": 1701,
+      "form": "WLW"
     },
     "Egypt": {
       "e": 1707,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 30,
+    "played": 31,
     "outcomeHits": 18,
     "scoreHits": 5,
-    "brier": 0.56,
+    "brier": 0.579,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -650,6 +650,21 @@
         "topH": 4,
         "topA": 0,
         "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-20T03:00:00Z",
+        "home": "Türkiye",
+        "away": "Paraguay",
+        "hg": 0,
+        "ag": 1,
+        "pick": "home",
+        "pH": 0.609,
+        "pD": 0.241,
+        "pA": 0.15,
+        "topH": 1,
+        "topA": 1,
+        "oHit": false,
         "sHit": false
       }
     ]
