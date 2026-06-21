@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-20T17:38:48.207Z",
+  "updated": "2026-06-21T04:47:36.913Z",
   "source": "football-data.org WC",
-  "matches": 32,
+  "matches": 35,
   "teams": {
     "Spain": {
       "e": 2157,
@@ -32,15 +32,15 @@
       "form": "LLWWW"
     },
     "Netherlands": {
-      "e": 1944,
-      "form": "WDLWD"
+      "e": 1965,
+      "form": "DLWDW"
     },
     "Ecuador": {
-      "e": 1911,
-      "form": "DDWWL"
+      "e": 1896,
+      "form": "DWWLD"
     },
     "Germany": {
-      "e": 1938,
+      "e": 1948,
       "form": "WWWWW"
     },
     "Norway": {
@@ -96,8 +96,8 @@
       "form": "WW"
     },
     "Sweden": {
-      "e": 1796,
-      "form": "WWLDW"
+      "e": 1776,
+      "form": "WLDWL"
     },
     "Czechia": {
       "e": 1737,
@@ -108,8 +108,8 @@
       "form": "WDL"
     },
     "Ivory Coast": {
-      "e": 1775,
-      "form": "WW"
+      "e": 1765,
+      "form": "WWL"
     },
     "Scotland": {
       "e": 1737,
@@ -184,8 +184,8 @@
       "form": "W"
     },
     "Curaçao": {
-      "e": 1499,
-      "form": "LWL"
+      "e": 1514,
+      "form": "LWLD"
     },
     "Haiti": {
       "e": 1489,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 31,
-    "outcomeHits": 18,
+    "played": 34,
+    "outcomeHits": 20,
     "scoreHits": 5,
-    "brier": 0.579,
+    "brier": 0.593,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -664,6 +664,51 @@
         "pA": 0.15,
         "topH": 1,
         "topA": 1,
+        "oHit": false,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-20T17:00:00Z",
+        "home": "Netherlands",
+        "away": "Sweden",
+        "hg": 5,
+        "ag": 1,
+        "pick": "home",
+        "pH": 0.601,
+        "pD": 0.234,
+        "pA": 0.165,
+        "topH": 1,
+        "topA": 1,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-20T20:00:00Z",
+        "home": "Germany",
+        "away": "Ivory Coast",
+        "hg": 2,
+        "ag": 1,
+        "pick": "home",
+        "pH": 0.71,
+        "pD": 0.184,
+        "pA": 0.106,
+        "topH": 2,
+        "topA": 0,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-21T00:00:00Z",
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "hg": 0,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.951,
+        "pD": 0.04,
+        "pA": 0.009,
+        "topH": 4,
+        "topA": 0,
         "oHit": false,
         "sHit": false
       }
