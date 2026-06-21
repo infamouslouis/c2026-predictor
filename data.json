@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-21T04:47:36.913Z",
+  "updated": "2026-06-21T11:19:39.959Z",
   "source": "football-data.org WC",
-  "matches": 35,
+  "matches": 36,
   "teams": {
     "Spain": {
       "e": 2157,
@@ -60,8 +60,8 @@
       "form": "D"
     },
     "Japan": {
-      "e": 1883,
-      "form": "WWWWD"
+      "e": 1897,
+      "form": "WWWDW"
     },
     "Senegal": {
       "e": 1856,
@@ -144,8 +144,8 @@
       "form": "WLD"
     },
     "Tunisia": {
-      "e": 1664,
-      "form": "LLL"
+      "e": 1649,
+      "form": "LLLL"
     },
     "Bosnia & Herzegovina": {
       "e": 1676,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 34,
-    "outcomeHits": 20,
+    "played": 35,
+    "outcomeHits": 21,
     "scoreHits": 5,
-    "brier": 0.593,
+    "brier": 0.578,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -710,6 +710,21 @@
         "topH": 4,
         "topA": 0,
         "oHit": false,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-21T04:00:00Z",
+        "home": "Tunisia",
+        "away": "Japan",
+        "hg": 0,
+        "ag": 4,
+        "pick": "away",
+        "pH": 0.053,
+        "pD": 0.153,
+        "pA": 0.793,
+        "topH": 0,
+        "topA": 2,
+        "oHit": true,
         "sHit": false
       }
     ]
