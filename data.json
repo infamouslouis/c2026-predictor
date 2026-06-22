@@ -1,11 +1,11 @@
 {
-  "updated": "2026-06-21T17:43:12.234Z",
+  "updated": "2026-06-22T04:54:37.143Z",
   "source": "football-data.org WC",
-  "matches": 36,
+  "matches": 40,
   "teams": {
     "Spain": {
-      "e": 2157,
-      "form": "WDDW"
+      "e": 2160,
+      "form": "WDDWW"
     },
     "Argentina": {
       "e": 2121,
@@ -80,8 +80,8 @@
       "form": "DW"
     },
     "Belgium": {
-      "e": 1842,
-      "form": "WWWWD"
+      "e": 1834,
+      "form": "WWWDD"
     },
     "Mexico": {
       "e": 1830,
@@ -132,16 +132,16 @@
       "form": "LDWL"
     },
     "Iran": {
-      "e": 1693,
-      "form": "WD"
+      "e": 1700,
+      "form": "WDD"
     },
     "Paraguay": {
       "e": 1701,
       "form": "WLW"
     },
     "Egypt": {
-      "e": 1707,
-      "form": "WLD"
+      "e": 1720,
+      "form": "WLDW"
     },
     "Tunisia": {
       "e": 1649,
@@ -164,8 +164,8 @@
       "form": "LDWLD"
     },
     "Saudi Arabia": {
-      "e": 1632,
-      "form": "LDD"
+      "e": 1629,
+      "form": "LDDL"
     },
     "Qatar": {
       "e": 1604,
@@ -192,15 +192,15 @@
       "form": "WWLL"
     },
     "New Zealand": {
-      "e": 1509,
-      "form": "LLD"
+      "e": 1496,
+      "form": "LLDL"
     }
   },
   "track": {
-    "played": 35,
-    "outcomeHits": 21,
-    "scoreHits": 5,
-    "brier": 0.578,
+    "played": 38,
+    "outcomeHits": 23,
+    "scoreHits": 6,
+    "brier": 0.562,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -722,6 +722,51 @@
         "pH": 0.053,
         "pD": 0.153,
         "pA": 0.793,
+        "topH": 0,
+        "topA": 2,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-21T16:00:00Z",
+        "home": "Spain",
+        "away": "Saudi Arabia",
+        "hg": 4,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.963,
+        "pD": 0.032,
+        "pA": 0.005,
+        "topH": 4,
+        "topA": 0,
+        "oHit": true,
+        "sHit": true
+      },
+      {
+        "date": "2026-06-21T19:00:00Z",
+        "home": "Belgium",
+        "away": "Iran",
+        "hg": 0,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.643,
+        "pD": 0.23,
+        "pA": 0.128,
+        "topH": 2,
+        "topA": 0,
+        "oHit": false,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-22T01:00:00Z",
+        "home": "New Zealand",
+        "away": "Egypt",
+        "hg": 1,
+        "ag": 3,
+        "pick": "away",
+        "pH": 0.096,
+        "pD": 0.189,
+        "pA": 0.715,
         "topH": 0,
         "topA": 2,
         "oHit": true,
