@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-22T19:34:18.095Z",
+  "updated": "2026-06-23T03:57:06.402Z",
   "source": "football-data.org WC",
-  "matches": 41,
+  "matches": 43,
   "teams": {
     "Spain": {
       "e": 2160,
@@ -12,8 +12,8 @@
       "form": "WWWWW"
     },
     "France": {
-      "e": 2076,
-      "form": "WWLWW"
+      "e": 2078,
+      "form": "WLWWW"
     },
     "England": {
       "e": 2043,
@@ -44,8 +44,8 @@
       "form": "WWWWW"
     },
     "Norway": {
-      "e": 1919,
-      "form": "LDWDW"
+      "e": 1934,
+      "form": "DWDWW"
     },
     "Croatia": {
       "e": 1893,
@@ -64,8 +64,8 @@
       "form": "WWWDW"
     },
     "Senegal": {
-      "e": 1856,
-      "form": "WWLDL"
+      "e": 1841,
+      "form": "WLDLL"
     },
     "Morocco": {
       "e": 1877,
@@ -104,8 +104,8 @@
       "form": "WWLD"
     },
     "Iraq": {
-      "e": 1485,
-      "form": "WDL"
+      "e": 1483,
+      "form": "WDLL"
     },
     "Ivory Coast": {
       "e": 1765,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 39,
-    "outcomeHits": 24,
+    "played": 41,
+    "outcomeHits": 26,
     "scoreHits": 6,
-    "brier": 0.548,
+    "brier": 0.529,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -784,6 +784,36 @@
         "pA": 0.023,
         "topH": 3,
         "topA": 0,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-22T21:00:00Z",
+        "home": "France",
+        "away": "Iraq",
+        "hg": 3,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.966,
+        "pD": 0.03,
+        "pA": 0.004,
+        "topH": 4,
+        "topA": 0,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-23T00:00:00Z",
+        "home": "Norway",
+        "away": "Senegal",
+        "hg": 3,
+        "ag": 2,
+        "pick": "home",
+        "pH": 0.545,
+        "pD": 0.251,
+        "pA": 0.204,
+        "topH": 1,
+        "topA": 1,
         "oHit": true,
         "sHit": false
       }
