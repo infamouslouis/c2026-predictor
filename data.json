@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-23T03:57:06.402Z",
+  "updated": "2026-06-23T11:22:12.676Z",
   "source": "football-data.org WC",
-  "matches": 43,
+  "matches": 44,
   "teams": {
     "Spain": {
       "e": 2160,
@@ -120,8 +120,8 @@
       "form": "WWWL"
     },
     "Algeria": {
-      "e": 1732,
-      "form": "WL"
+      "e": 1741,
+      "form": "WLW"
     },
     "Canada": {
       "e": 1754,
@@ -176,8 +176,8 @@
       "form": "LLL"
     },
     "Jordan": {
-      "e": 1553,
-      "form": "LLL"
+      "e": 1544,
+      "form": "LLLL"
     },
     "Cape Verde": {
       "e": 1560,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 41,
-    "outcomeHits": 26,
+    "played": 42,
+    "outcomeHits": 27,
     "scoreHits": 6,
-    "brier": 0.529,
+    "brier": 0.52,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -814,6 +814,21 @@
         "pA": 0.204,
         "topH": 1,
         "topA": 1,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-23T03:00:00Z",
+        "home": "Jordan",
+        "away": "Algeria",
+        "hg": 1,
+        "ag": 2,
+        "pick": "away",
+        "pH": 0.102,
+        "pD": 0.201,
+        "pA": 0.697,
+        "topH": 0,
+        "topA": 2,
         "oHit": true,
         "sHit": false
       }
