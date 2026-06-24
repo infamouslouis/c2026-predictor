@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-23T18:01:58.759Z",
+  "updated": "2026-06-24T03:58:37.779Z",
   "source": "football-data.org WC",
-  "matches": 44,
+  "matches": 47,
   "teams": {
     "Spain": {
       "e": 2160,
@@ -16,16 +16,16 @@
       "form": "WLWWW"
     },
     "England": {
-      "e": 2043,
-      "form": "DLWWW"
+      "e": 2028,
+      "form": "LWWWD"
     },
     "Brazil": {
       "e": 1988,
       "form": "WWWDW"
     },
     "Portugal": {
-      "e": 1976,
-      "form": "DWWWD"
+      "e": 1983,
+      "form": "WWWDW"
     },
     "Colombia": {
       "e": 1987,
@@ -48,8 +48,8 @@
       "form": "DWDWW"
     },
     "Croatia": {
-      "e": 1893,
-      "form": "WLLWL"
+      "e": 1900,
+      "form": "LLWLW"
     },
     "Switzerland": {
       "e": 1899,
@@ -76,8 +76,8 @@
       "form": "WWLL"
     },
     "Ghana": {
-      "e": 1668,
-      "form": "DW"
+      "e": 1682,
+      "form": "DWD"
     },
     "Belgium": {
       "e": 1834,
@@ -156,8 +156,8 @@
       "form": "DLD"
     },
     "Panama": {
-      "e": 1627,
-      "form": "LWDL"
+      "e": 1621,
+      "form": "LWDLL"
     },
     "South Africa": {
       "e": 1631,
@@ -172,8 +172,8 @@
       "form": "LDDL"
     },
     "Uzbekistan": {
-      "e": 1580,
-      "form": "LLL"
+      "e": 1573,
+      "form": "LLLL"
     },
     "Jordan": {
       "e": 1544,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 42,
-    "outcomeHits": 27,
+    "played": 45,
+    "outcomeHits": 29,
     "scoreHits": 6,
-    "brier": 0.52,
+    "brier": 0.526,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -827,6 +827,51 @@
         "pH": 0.102,
         "pD": 0.201,
         "pA": 0.697,
+        "topH": 0,
+        "topA": 2,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-23T17:00:00Z",
+        "home": "Portugal",
+        "away": "Uzbekistan",
+        "hg": 5,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.951,
+        "pD": 0.04,
+        "pA": 0.009,
+        "topH": 4,
+        "topA": 0,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-23T20:00:00Z",
+        "home": "England",
+        "away": "Ghana",
+        "hg": 0,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.924,
+        "pD": 0.061,
+        "pA": 0.015,
+        "topH": 3,
+        "topA": 0,
+        "oHit": false,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-23T23:00:00Z",
+        "home": "Panama",
+        "away": "Croatia",
+        "hg": 0,
+        "ag": 1,
+        "pick": "away",
+        "pH": 0.063,
+        "pD": 0.156,
+        "pA": 0.781,
         "topH": 0,
         "topA": 2,
         "oHit": true,
