@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-24T03:58:37.779Z",
+  "updated": "2026-06-24T10:55:03.248Z",
   "source": "football-data.org WC",
-  "matches": 47,
+  "matches": 48,
   "teams": {
     "Spain": {
       "e": 2160,
@@ -28,8 +28,8 @@
       "form": "WWWDW"
     },
     "Colombia": {
-      "e": 1987,
-      "form": "LLWWW"
+      "e": 1993,
+      "form": "LWWWW"
     },
     "Netherlands": {
       "e": 1965,
@@ -152,8 +152,8 @@
       "form": "DDDL"
     },
     "DR Congo": {
-      "e": 1693,
-      "form": "DLD"
+      "e": 1687,
+      "form": "DLDL"
     },
     "Panama": {
       "e": 1621,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 45,
-    "outcomeHits": 29,
+    "played": 46,
+    "outcomeHits": 30,
     "scoreHits": 6,
-    "brier": 0.526,
+    "brier": 0.515,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -874,6 +874,21 @@
         "pA": 0.781,
         "topH": 0,
         "topA": 2,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-24T02:00:00Z",
+        "home": "Colombia",
+        "away": "DR Congo",
+        "hg": 1,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.888,
+        "pD": 0.085,
+        "pA": 0.027,
+        "topH": 3,
+        "topA": 0,
         "oHit": true,
         "sHit": false
       }
