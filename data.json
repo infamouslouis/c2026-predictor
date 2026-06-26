@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-25T18:14:24.396Z",
+  "updated": "2026-06-26T04:06:35.898Z",
   "source": "football-data.org WC",
-  "matches": 54,
+  "matches": 59,
   "teams": {
     "Spain": {
       "e": 2160,
@@ -32,16 +32,16 @@
       "form": "LWWWW"
     },
     "Netherlands": {
-      "e": 1965,
-      "form": "DLWDW"
+      "e": 1972,
+      "form": "LWDWW"
     },
     "Ecuador": {
-      "e": 1896,
-      "form": "DWWLD"
+      "e": 1917,
+      "form": "WWLDW"
     },
     "Germany": {
-      "e": 1948,
-      "form": "WWWWW"
+      "e": 1927,
+      "form": "WWWWL"
     },
     "Norway": {
       "e": 1934,
@@ -60,8 +60,8 @@
       "form": "D"
     },
     "Japan": {
-      "e": 1897,
-      "form": "WWWDW"
+      "e": 1891,
+      "form": "WWDWD"
     },
     "Senegal": {
       "e": 1841,
@@ -96,8 +96,8 @@
       "form": "WWL"
     },
     "Sweden": {
-      "e": 1776,
-      "form": "WLDWL"
+      "e": 1782,
+      "form": "LDWLD"
     },
     "Czechia": {
       "e": 1714,
@@ -108,8 +108,8 @@
       "form": "WDLL"
     },
     "Ivory Coast": {
-      "e": 1765,
-      "form": "WWL"
+      "e": 1775,
+      "form": "WWLW"
     },
     "Scotland": {
       "e": 1725,
@@ -128,24 +128,24 @@
       "form": "WDDWL"
     },
     "Australia": {
-      "e": 1730,
-      "form": "LDWL"
+      "e": 1729,
+      "form": "LDWLD"
     },
     "Iran": {
       "e": 1700,
       "form": "WDD"
     },
     "Paraguay": {
-      "e": 1701,
-      "form": "WLW"
+      "e": 1703,
+      "form": "WLWD"
     },
     "Egypt": {
       "e": 1720,
       "form": "WLDW"
     },
     "Tunisia": {
-      "e": 1649,
-      "form": "LLLL"
+      "e": 1641,
+      "form": "LLLLL"
     },
     "Bosnia & Herzegovina": {
       "e": 1698,
@@ -184,8 +184,8 @@
       "form": "W"
     },
     "Curaçao": {
-      "e": 1514,
-      "form": "LWLD"
+      "e": 1504,
+      "form": "LWLDL"
     },
     "Haiti": {
       "e": 1484,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 52,
-    "outcomeHits": 35,
-    "scoreHits": 6,
-    "brier": 0.495,
+    "played": 57,
+    "outcomeHits": 37,
+    "scoreHits": 7,
+    "brier": 0.501,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -977,6 +977,81 @@
         "pH": 0.172,
         "pD": 0.247,
         "pA": 0.581,
+        "topH": 1,
+        "topA": 1,
+        "oHit": false,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-25T20:00:00Z",
+        "home": "Ecuador",
+        "away": "Germany",
+        "hg": 2,
+        "ag": 1,
+        "pick": "away",
+        "pH": 0.208,
+        "pD": 0.249,
+        "pA": 0.543,
+        "topH": 1,
+        "topA": 1,
+        "oHit": false,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-25T20:00:00Z",
+        "home": "Curaçao",
+        "away": "Ivory Coast",
+        "hg": 0,
+        "ag": 2,
+        "pick": "away",
+        "pH": 0.06,
+        "pD": 0.14,
+        "pA": 0.8,
+        "topH": 0,
+        "topA": 2,
+        "oHit": true,
+        "sHit": true
+      },
+      {
+        "date": "2026-06-25T23:00:00Z",
+        "home": "Tunisia",
+        "away": "Netherlands",
+        "hg": 1,
+        "ag": 3,
+        "pick": "away",
+        "pH": 0.019,
+        "pD": 0.071,
+        "pA": 0.91,
+        "topH": 0,
+        "topA": 3,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-25T23:00:00Z",
+        "home": "Japan",
+        "away": "Sweden",
+        "hg": 1,
+        "ag": 1,
+        "pick": "home",
+        "pH": 0.635,
+        "pD": 0.232,
+        "pA": 0.133,
+        "topH": 2,
+        "topA": 0,
+        "oHit": false,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-26T02:00:00Z",
+        "home": "Paraguay",
+        "away": "Australia",
+        "hg": 0,
+        "ag": 0,
+        "pick": "away",
+        "pH": 0.34,
+        "pD": 0.296,
+        "pA": 0.364,
         "topH": 1,
         "topA": 1,
         "oHit": false,
