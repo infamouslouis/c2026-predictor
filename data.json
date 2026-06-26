@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-26T04:06:35.898Z",
+  "updated": "2026-06-26T10:55:10.349Z",
   "source": "football-data.org WC",
-  "matches": 59,
+  "matches": 60,
   "teams": {
     "Spain": {
       "e": 2160,
@@ -72,8 +72,8 @@
       "form": "WDDWW"
     },
     "Türkiye": {
-      "e": 1797,
-      "form": "WWLL"
+      "e": 1817,
+      "form": "WWLLW"
     },
     "Ghana": {
       "e": 1682,
@@ -88,8 +88,8 @@
       "form": "WWWWW"
     },
     "USA": {
-      "e": 1834,
-      "form": "LWLWW"
+      "e": 1814,
+      "form": "WLWWL"
     },
     "Austria": {
       "e": 1792,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 57,
+    "played": 58,
     "outcomeHits": 37,
     "scoreHits": 7,
-    "brier": 0.501,
+    "brier": 0.512,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -1039,6 +1039,21 @@
         "pA": 0.133,
         "topH": 2,
         "topA": 0,
+        "oHit": false,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-26T02:00:00Z",
+        "home": "Türkiye",
+        "away": "USA",
+        "hg": 3,
+        "ag": 2,
+        "pick": "away",
+        "pH": 0.15,
+        "pD": 0.242,
+        "pA": 0.608,
+        "topH": 1,
+        "topA": 1,
         "oHit": false,
         "sHit": false
       },
