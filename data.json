@@ -1,19 +1,19 @@
 {
-  "updated": "2026-06-26T17:52:52.863Z",
+  "updated": "2026-06-27T03:52:20.396Z",
   "source": "football-data.org WC",
-  "matches": 60,
+  "matches": 64,
   "teams": {
     "Spain": {
-      "e": 2160,
-      "form": "WDDWW"
+      "e": 2166,
+      "form": "DDWWW"
     },
     "Argentina": {
       "e": 2129,
       "form": "WWWWW"
     },
     "France": {
-      "e": 2078,
-      "form": "WLWWW"
+      "e": 2097,
+      "form": "LWWWW"
     },
     "England": {
       "e": 2028,
@@ -44,8 +44,8 @@
       "form": "WWWWL"
     },
     "Norway": {
-      "e": 1934,
-      "form": "DWDWW"
+      "e": 1915,
+      "form": "WDWWL"
     },
     "Croatia": {
       "e": 1900,
@@ -56,16 +56,16 @@
       "form": "WDDWW"
     },
     "Uruguay": {
-      "e": 1876,
-      "form": "D"
+      "e": 1870,
+      "form": "DL"
     },
     "Japan": {
       "e": 1891,
       "form": "WWDWD"
     },
     "Senegal": {
-      "e": 1841,
-      "form": "WLDLL"
+      "e": 1849,
+      "form": "LDLLW"
     },
     "Morocco": {
       "e": 1882,
@@ -104,8 +104,8 @@
       "form": "WWLDL"
     },
     "Iraq": {
-      "e": 1483,
-      "form": "WDLL"
+      "e": 1475,
+      "form": "WDLLL"
     },
     "Ivory Coast": {
       "e": 1775,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 58,
-    "outcomeHits": 37,
+    "played": 61,
+    "outcomeHits": 40,
     "scoreHits": 7,
-    "brier": 0.512,
+    "brier": 0.491,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -1070,6 +1070,51 @@
         "topH": 1,
         "topA": 1,
         "oHit": false,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-26T19:00:00Z",
+        "home": "Norway",
+        "away": "France",
+        "hg": 1,
+        "ag": 4,
+        "pick": "away",
+        "pH": 0.153,
+        "pD": 0.217,
+        "pA": 0.63,
+        "topH": 1,
+        "topA": 1,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-26T19:00:00Z",
+        "home": "Senegal",
+        "away": "Iraq",
+        "hg": 5,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.891,
+        "pD": 0.084,
+        "pA": 0.025,
+        "topH": 3,
+        "topA": 0,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-27T00:00:00Z",
+        "home": "Uruguay",
+        "away": "Spain",
+        "hg": 0,
+        "ag": 1,
+        "pick": "away",
+        "pH": 0.038,
+        "pD": 0.118,
+        "pA": 0.844,
+        "topH": 0,
+        "topA": 2,
+        "oHit": true,
         "sHit": false
       }
     ]
