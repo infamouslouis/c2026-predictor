@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-27T03:52:20.396Z",
+  "updated": "2026-06-27T10:13:08.491Z",
   "source": "football-data.org WC",
-  "matches": 64,
+  "matches": 66,
   "teams": {
     "Spain": {
       "e": 2166,
@@ -80,8 +80,8 @@
       "form": "DWD"
     },
     "Belgium": {
-      "e": 1834,
-      "form": "WWWDD"
+      "e": 1843,
+      "form": "WWDDW"
     },
     "Mexico": {
       "e": 1854,
@@ -132,16 +132,16 @@
       "form": "LDWLD"
     },
     "Iran": {
-      "e": 1700,
-      "form": "WDD"
+      "e": 1701,
+      "form": "WDDD"
     },
     "Paraguay": {
       "e": 1703,
       "form": "WLWD"
     },
     "Egypt": {
-      "e": 1720,
-      "form": "WLDW"
+      "e": 1719,
+      "form": "WLDWD"
     },
     "Tunisia": {
       "e": 1641,
@@ -192,15 +192,15 @@
       "form": "WWLLL"
     },
     "New Zealand": {
-      "e": 1496,
-      "form": "LLDL"
+      "e": 1488,
+      "form": "LLDLL"
     }
   },
   "track": {
-    "played": 61,
-    "outcomeHits": 40,
-    "scoreHits": 7,
-    "brier": 0.491,
+    "played": 63,
+    "outcomeHits": 41,
+    "scoreHits": 8,
+    "brier": 0.487,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -1116,6 +1116,36 @@
         "topA": 2,
         "oHit": true,
         "sHit": false
+      },
+      {
+        "date": "2026-06-27T03:00:00Z",
+        "home": "New Zealand",
+        "away": "Belgium",
+        "hg": 1,
+        "ag": 5,
+        "pick": "away",
+        "pH": 0.013,
+        "pD": 0.05,
+        "pA": 0.936,
+        "topH": 0,
+        "topA": 4,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-27T03:00:00Z",
+        "home": "Egypt",
+        "away": "Iran",
+        "hg": 1,
+        "ag": 1,
+        "pick": "home",
+        "pH": 0.382,
+        "pD": 0.317,
+        "pA": 0.301,
+        "topH": 1,
+        "topA": 1,
+        "oHit": false,
+        "sHit": true
       }
     ]
   }
