@@ -1,14 +1,14 @@
 {
-  "updated": "2026-06-27T17:15:49.119Z",
+  "updated": "2026-06-28T04:14:25.928Z",
   "source": "football-data.org WC",
-  "matches": 66,
+  "matches": 72,
   "teams": {
     "Spain": {
       "e": 2166,
       "form": "DDWWW"
     },
     "Argentina": {
-      "e": 2129,
+      "e": 2131,
       "form": "WWWWW"
     },
     "France": {
@@ -16,8 +16,8 @@
       "form": "LWWWW"
     },
     "England": {
-      "e": 2028,
-      "form": "LWWWD"
+      "e": 2033,
+      "form": "WWWDW"
     },
     "Brazil": {
       "e": 2000,
@@ -25,11 +25,11 @@
     },
     "Portugal": {
       "e": 1983,
-      "form": "WWWDW"
+      "form": "WWDWD"
     },
     "Colombia": {
-      "e": 1993,
-      "form": "LWWWW"
+      "e": 1992,
+      "form": "WWWWD"
     },
     "Netherlands": {
       "e": 1972,
@@ -48,8 +48,8 @@
       "form": "WDWWL"
     },
     "Croatia": {
-      "e": 1900,
-      "form": "LLWLW"
+      "e": 1908,
+      "form": "LWLWW"
     },
     "Switzerland": {
       "e": 1910,
@@ -76,8 +76,8 @@
       "form": "WWLLW"
     },
     "Ghana": {
-      "e": 1682,
-      "form": "DWD"
+      "e": 1674,
+      "form": "DWDL"
     },
     "Belgium": {
       "e": 1843,
@@ -92,8 +92,8 @@
       "form": "WLWWL"
     },
     "Austria": {
-      "e": 1792,
-      "form": "WWL"
+      "e": 1790,
+      "form": "WWLD"
     },
     "Sweden": {
       "e": 1782,
@@ -120,8 +120,8 @@
       "form": "WWWLL"
     },
     "Algeria": {
-      "e": 1741,
-      "form": "WLW"
+      "e": 1744,
+      "form": "WLWD"
     },
     "Canada": {
       "e": 1743,
@@ -152,12 +152,12 @@
       "form": "DDDLW"
     },
     "DR Congo": {
-      "e": 1687,
-      "form": "DLDL"
+      "e": 1706,
+      "form": "DLDLW"
     },
     "Panama": {
-      "e": 1621,
-      "form": "LWDLL"
+      "e": 1616,
+      "form": "WDLLL"
     },
     "South Africa": {
       "e": 1654,
@@ -172,12 +172,12 @@
       "form": "LDDLL"
     },
     "Uzbekistan": {
-      "e": 1573,
-      "form": "LLLL"
+      "e": 1555,
+      "form": "LLLLL"
     },
     "Jordan": {
-      "e": 1544,
-      "form": "LLLL"
+      "e": 1542,
+      "form": "LLLLL"
     },
     "Cape Verde": {
       "e": 1560,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 63,
-    "outcomeHits": 41,
+    "played": 69,
+    "outcomeHits": 45,
     "scoreHits": 8,
-    "brier": 0.487,
+    "brier": 0.473,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -1146,6 +1146,96 @@
         "topA": 1,
         "oHit": false,
         "sHit": true
+      },
+      {
+        "date": "2026-06-27T21:00:00Z",
+        "home": "Panama",
+        "away": "England",
+        "hg": 0,
+        "ag": 2,
+        "pick": "away",
+        "pH": 0.007,
+        "pD": 0.037,
+        "pA": 0.956,
+        "topH": 0,
+        "topA": 4,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-27T21:00:00Z",
+        "home": "Croatia",
+        "away": "Ghana",
+        "hg": 2,
+        "ag": 1,
+        "pick": "home",
+        "pH": 0.704,
+        "pD": 0.2,
+        "pA": 0.096,
+        "topH": 2,
+        "topA": 0,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-27T23:30:00Z",
+        "home": "Colombia",
+        "away": "Portugal",
+        "hg": 0,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.395,
+        "pD": 0.273,
+        "pA": 0.332,
+        "topH": 1,
+        "topA": 1,
+        "oHit": false,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-27T23:30:00Z",
+        "home": "DR Congo",
+        "away": "Uzbekistan",
+        "hg": 3,
+        "ag": 1,
+        "pick": "home",
+        "pH": 0.597,
+        "pD": 0.233,
+        "pA": 0.169,
+        "topH": 1,
+        "topA": 1,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-28T02:00:00Z",
+        "home": "Jordan",
+        "away": "Argentina",
+        "hg": 1,
+        "ag": 3,
+        "pick": "away",
+        "pH": 0.003,
+        "pD": 0.027,
+        "pA": 0.97,
+        "topH": 0,
+        "topA": 4,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-28T02:00:00Z",
+        "home": "Algeria",
+        "away": "Austria",
+        "hg": 3,
+        "ag": 3,
+        "pick": "away",
+        "pH": 0.297,
+        "pD": 0.279,
+        "pA": 0.424,
+        "topH": 1,
+        "topA": 1,
+        "oHit": false,
+        "sHit": false
       }
     ]
   }
