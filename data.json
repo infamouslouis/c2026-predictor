@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-28T17:18:00.089Z",
+  "updated": "2026-06-29T04:21:10.674Z",
   "source": "football-data.org WC",
-  "matches": 72,
+  "matches": 73,
   "teams": {
     "Spain": {
       "e": 2166,
@@ -124,8 +124,8 @@
       "form": "WLWD"
     },
     "Canada": {
-      "e": 1743,
-      "form": "WDDWL"
+      "e": 1757,
+      "form": "DDWLW"
     },
     "Australia": {
       "e": 1729,
@@ -160,8 +160,8 @@
       "form": "WDLLL"
     },
     "South Africa": {
-      "e": 1654,
-      "form": "DWLDW"
+      "e": 1641,
+      "form": "WLDWL"
     },
     "Saudi Arabia": {
       "e": 1629,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 69,
-    "outcomeHits": 45,
+    "played": 70,
+    "outcomeHits": 46,
     "scoreHits": 8,
-    "brier": 0.473,
+    "brier": 0.47,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -1235,6 +1235,21 @@
         "topH": 1,
         "topA": 1,
         "oHit": false,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-28T19:00:00Z",
+        "home": "South Africa",
+        "away": "Canada",
+        "hg": 0,
+        "ag": 1,
+        "pick": "away",
+        "pH": 0.156,
+        "pD": 0.234,
+        "pA": 0.61,
+        "topH": 1,
+        "topA": 1,
+        "oHit": true,
         "sHit": false
       }
     ]
