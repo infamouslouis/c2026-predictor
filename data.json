@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-30T18:00:42.571Z",
+  "updated": "2026-07-01T04:17:14.981Z",
   "source": "football-data.org WC",
-  "matches": 76,
+  "matches": 79,
   "teams": {
     "Spain": {
       "e": 2166,
@@ -12,8 +12,8 @@
       "form": "WWWWW"
     },
     "France": {
-      "e": 2097,
-      "form": "LWWWW"
+      "e": 2106,
+      "form": "WWWWW"
     },
     "England": {
       "e": 2033,
@@ -36,16 +36,16 @@
       "form": "WDWWL"
     },
     "Ecuador": {
-      "e": 1917,
-      "form": "WWLDW"
+      "e": 1885,
+      "form": "WLDWL"
     },
     "Germany": {
       "e": 1899,
       "form": "WWWLL"
     },
     "Norway": {
-      "e": 1915,
-      "form": "WDWWL"
+      "e": 1926,
+      "form": "DWWLW"
     },
     "Croatia": {
       "e": 1908,
@@ -84,7 +84,7 @@
       "form": "WWDDW"
     },
     "Mexico": {
-      "e": 1854,
+      "e": 1886,
       "form": "WWWWW"
     },
     "USA": {
@@ -96,8 +96,8 @@
       "form": "WWLD"
     },
     "Sweden": {
-      "e": 1782,
-      "form": "LDWLD"
+      "e": 1773,
+      "form": "DWLDL"
     },
     "Czechia": {
       "e": 1714,
@@ -108,8 +108,8 @@
       "form": "WDLLL"
     },
     "Ivory Coast": {
-      "e": 1775,
-      "form": "WWLW"
+      "e": 1764,
+      "form": "WWLWL"
     },
     "Scotland": {
       "e": 1725,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 73,
-    "outcomeHits": 47,
-    "scoreHits": 8,
-    "brier": 0.487,
+    "played": 76,
+    "outcomeHits": 50,
+    "scoreHits": 9,
+    "brier": 0.477,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -1295,6 +1295,51 @@
         "topH": 1,
         "topA": 1,
         "oHit": false,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-30T17:00:00Z",
+        "home": "Ivory Coast",
+        "away": "Norway",
+        "hg": 1,
+        "ag": 2,
+        "pick": "away",
+        "pH": 0.171,
+        "pD": 0.227,
+        "pA": 0.602,
+        "topH": 1,
+        "topA": 1,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-06-30T21:00:00Z",
+        "home": "France",
+        "away": "Sweden",
+        "hg": 3,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.908,
+        "pD": 0.072,
+        "pA": 0.02,
+        "topH": 3,
+        "topA": 0,
+        "oHit": true,
+        "sHit": true
+      },
+      {
+        "date": "2026-07-01T01:00:00Z",
+        "home": "Mexico",
+        "away": "Ecuador",
+        "hg": 2,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.422,
+        "pD": 0.296,
+        "pA": 0.282,
+        "topH": 1,
+        "topA": 1,
+        "oHit": true,
         "sHit": false
       }
     ]
