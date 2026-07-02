@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-01T18:01:22.564Z",
+  "updated": "2026-07-02T03:57:16.294Z",
   "source": "football-data.org WC",
-  "matches": 79,
+  "matches": 82,
   "teams": {
     "Spain": {
       "e": 2166,
@@ -16,8 +16,8 @@
       "form": "WWWWW"
     },
     "England": {
-      "e": 2033,
-      "form": "WWWDW"
+      "e": 2038,
+      "form": "WWDWW"
     },
     "Brazil": {
       "e": 2013,
@@ -64,8 +64,8 @@
       "form": "WDWDL"
     },
     "Senegal": {
-      "e": 1849,
-      "form": "LDLLW"
+      "e": 1831,
+      "form": "DLLWL"
     },
     "Morocco": {
       "e": 1905,
@@ -80,16 +80,16 @@
       "form": "DWDL"
     },
     "Belgium": {
-      "e": 1843,
-      "form": "WWDDW"
+      "e": 1861,
+      "form": "WDDWW"
     },
     "Mexico": {
       "e": 1886,
       "form": "WWWWW"
     },
     "USA": {
-      "e": 1814,
-      "form": "WLWWL"
+      "e": 1833,
+      "form": "LWWLW"
     },
     "Austria": {
       "e": 1790,
@@ -148,12 +148,12 @@
       "form": "LLLLL"
     },
     "Bosnia & Herzegovina": {
-      "e": 1698,
-      "form": "DDDLW"
+      "e": 1679,
+      "form": "DDLWL"
     },
     "DR Congo": {
-      "e": 1706,
-      "form": "DLDLW"
+      "e": 1701,
+      "form": "LDLWL"
     },
     "Panama": {
       "e": 1616,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 76,
-    "outcomeHits": 50,
-    "scoreHits": 9,
-    "brier": 0.477,
+    "played": 79,
+    "outcomeHits": 53,
+    "scoreHits": 10,
+    "brier": 0.468,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -1328,7 +1328,7 @@
         "sHit": true
       },
       {
-        "date": "2026-07-01T01:00:00Z",
+        "date": "2026-07-01T02:00:00Z",
         "home": "Mexico",
         "away": "Ecuador",
         "hg": 2,
@@ -1341,6 +1341,51 @@
         "topA": 1,
         "oHit": true,
         "sHit": false
+      },
+      {
+        "date": "2026-07-01T16:00:00Z",
+        "home": "England",
+        "away": "DR Congo",
+        "hg": 2,
+        "ag": 1,
+        "pick": "home",
+        "pH": 0.905,
+        "pD": 0.075,
+        "pA": 0.02,
+        "topH": 3,
+        "topA": 0,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-07-01T20:00:00Z",
+        "home": "Belgium",
+        "away": "Senegal",
+        "hg": 3,
+        "ag": 2,
+        "pick": "home",
+        "pH": 0.409,
+        "pD": 0.286,
+        "pA": 0.305,
+        "topH": 1,
+        "topA": 1,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-07-02T00:00:00Z",
+        "home": "USA",
+        "away": "Bosnia & Herzegovina",
+        "hg": 2,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.671,
+        "pD": 0.213,
+        "pA": 0.116,
+        "topH": 2,
+        "topA": 0,
+        "oHit": true,
+        "sHit": true
       }
     ]
   }
