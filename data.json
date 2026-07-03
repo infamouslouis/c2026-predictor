@@ -1,11 +1,11 @@
 {
-  "updated": "2026-07-02T17:53:36.235Z",
+  "updated": "2026-07-03T03:40:01.110Z",
   "source": "football-data.org WC",
-  "matches": 82,
+  "matches": 84,
   "teams": {
     "Spain": {
-      "e": 2166,
-      "form": "DDWWW"
+      "e": 2172,
+      "form": "DWWWW"
     },
     "Argentina": {
       "e": 2131,
@@ -24,8 +24,8 @@
       "form": "WDWWW"
     },
     "Portugal": {
-      "e": 1983,
-      "form": "WWDWD"
+      "e": 1998,
+      "form": "WDWDW"
     },
     "Colombia": {
       "e": 1992,
@@ -48,8 +48,8 @@
       "form": "DWWLW"
     },
     "Croatia": {
-      "e": 1908,
-      "form": "LWLWW"
+      "e": 1894,
+      "form": "WLWWL"
     },
     "Switzerland": {
       "e": 1910,
@@ -92,8 +92,8 @@
       "form": "LWWLW"
     },
     "Austria": {
-      "e": 1790,
-      "form": "WWLD"
+      "e": 1783,
+      "form": "WWLDL"
     },
     "Sweden": {
       "e": 1773,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 79,
-    "outcomeHits": 53,
+    "played": 81,
+    "outcomeHits": 55,
     "scoreHits": 10,
-    "brier": 0.468,
+    "brier": 0.462,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -1386,6 +1386,36 @@
         "topA": 0,
         "oHit": true,
         "sHit": true
+      },
+      {
+        "date": "2026-07-02T19:00:00Z",
+        "home": "Spain",
+        "away": "Austria",
+        "hg": 3,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.947,
+        "pD": 0.043,
+        "pA": 0.01,
+        "topH": 4,
+        "topA": 0,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-07-02T23:00:00Z",
+        "home": "Portugal",
+        "away": "Croatia",
+        "hg": 2,
+        "ag": 1,
+        "pick": "home",
+        "pH": 0.476,
+        "pD": 0.279,
+        "pA": 0.245,
+        "topH": 1,
+        "topA": 1,
+        "oHit": true,
+        "sHit": false
       }
     ]
   }
