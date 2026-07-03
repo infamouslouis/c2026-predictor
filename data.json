@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-03T03:40:01.110Z",
+  "updated": "2026-07-03T10:41:20.446Z",
   "source": "football-data.org WC",
-  "matches": 84,
+  "matches": 85,
   "teams": {
     "Spain": {
       "e": 2172,
@@ -52,8 +52,8 @@
       "form": "WLWWL"
     },
     "Switzerland": {
-      "e": 1910,
-      "form": "WDDWW"
+      "e": 1925,
+      "form": "DDWWW"
     },
     "Uruguay": {
       "e": 1870,
@@ -120,8 +120,8 @@
       "form": "WWWLL"
     },
     "Algeria": {
-      "e": 1744,
-      "form": "WLWD"
+      "e": 1729,
+      "form": "WLWDL"
     },
     "Canada": {
       "e": 1757,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 81,
-    "outcomeHits": 55,
-    "scoreHits": 10,
-    "brier": 0.462,
+    "played": 82,
+    "outcomeHits": 56,
+    "scoreHits": 11,
+    "brier": 0.458,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -1416,6 +1416,21 @@
         "topA": 1,
         "oHit": true,
         "sHit": false
+      },
+      {
+        "date": "2026-07-03T03:00:00Z",
+        "home": "Switzerland",
+        "away": "Algeria",
+        "hg": 2,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.664,
+        "pD": 0.224,
+        "pA": 0.112,
+        "topH": 2,
+        "topA": 0,
+        "oHit": true,
+        "sHit": true
       }
     ]
   }
