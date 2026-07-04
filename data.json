@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-03T17:37:01.367Z",
+  "updated": "2026-07-04T03:33:33.601Z",
   "source": "football-data.org WC",
-  "matches": 85,
+  "matches": 87,
   "teams": {
     "Spain": {
       "e": 2172,
@@ -128,8 +128,8 @@
       "form": "DDWLW"
     },
     "Australia": {
-      "e": 1729,
-      "form": "LDWLD"
+      "e": 1701,
+      "form": "DWLDL"
     },
     "Iran": {
       "e": 1701,
@@ -140,8 +140,8 @@
       "form": "WLWDW"
     },
     "Egypt": {
-      "e": 1719,
-      "form": "WLDWD"
+      "e": 1747,
+      "form": "LDWDW"
     },
     "Tunisia": {
       "e": 1641,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 82,
-    "outcomeHits": 56,
+    "played": 83,
+    "outcomeHits": 57,
     "scoreHits": 11,
-    "brier": 0.458,
+    "brier": 0.46,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -1431,6 +1431,21 @@
         "topA": 0,
         "oHit": true,
         "sHit": true
+      },
+      {
+        "date": "2026-07-03T18:00:00Z",
+        "home": "Australia",
+        "away": "Egypt",
+        "hg": 3,
+        "ag": 5,
+        "pick": "away",
+        "pH": 0.336,
+        "pD": 0.296,
+        "pA": 0.368,
+        "topH": 1,
+        "topA": 1,
+        "oHit": true,
+        "sHit": false
       }
     ]
   }
