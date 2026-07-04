@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-04T03:33:33.601Z",
+  "updated": "2026-07-04T10:15:04.257Z",
   "source": "football-data.org WC",
-  "matches": 87,
+  "matches": 88,
   "teams": {
     "Spain": {
       "e": 2172,
@@ -28,8 +28,8 @@
       "form": "WDWDW"
     },
     "Colombia": {
-      "e": 1992,
-      "form": "WWWWD"
+      "e": 1997,
+      "form": "WWWDW"
     },
     "Netherlands": {
       "e": 1950,
@@ -76,8 +76,8 @@
       "form": "WWLLW"
     },
     "Ghana": {
-      "e": 1674,
-      "form": "DWDL"
+      "e": 1669,
+      "form": "DWDLL"
     },
     "Belgium": {
       "e": 1861,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 83,
-    "outcomeHits": 57,
+    "played": 84,
+    "outcomeHits": 58,
     "scoreHits": 11,
-    "brier": 0.46,
+    "brier": 0.455,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -1444,6 +1444,21 @@
         "pA": 0.368,
         "topH": 1,
         "topA": 1,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-07-04T01:30:00Z",
+        "home": "Colombia",
+        "away": "Ghana",
+        "hg": 1,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.911,
+        "pD": 0.069,
+        "pA": 0.02,
+        "topH": 3,
+        "topA": 0,
         "oHit": true,
         "sHit": false
       }
