@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-04T17:10:44.034Z",
+  "updated": "2026-07-05T03:51:31.059Z",
   "source": "football-data.org WC",
-  "matches": 88,
+  "matches": 90,
   "teams": {
     "Spain": {
       "e": 2172,
@@ -12,7 +12,7 @@
       "form": "WWWWW"
     },
     "France": {
-      "e": 2106,
+      "e": 2110,
       "form": "WWWWW"
     },
     "England": {
@@ -68,8 +68,8 @@
       "form": "DLLWL"
     },
     "Morocco": {
-      "e": 1905,
-      "form": "DDWWW"
+      "e": 1923,
+      "form": "DWWWW"
     },
     "Türkiye": {
       "e": 1817,
@@ -124,8 +124,8 @@
       "form": "WLWDL"
     },
     "Canada": {
-      "e": 1757,
-      "form": "DDWLW"
+      "e": 1738,
+      "form": "DWLWL"
     },
     "Australia": {
       "e": 1701,
@@ -136,8 +136,8 @@
       "form": "WDDD"
     },
     "Paraguay": {
-      "e": 1731,
-      "form": "WLWDW"
+      "e": 1727,
+      "form": "LWDWL"
     },
     "Egypt": {
       "e": 1747,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 84,
-    "outcomeHits": 58,
+    "played": 86,
+    "outcomeHits": 60,
     "scoreHits": 11,
-    "brier": 0.455,
+    "brier": 0.448,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -1459,6 +1459,36 @@
         "pA": 0.02,
         "topH": 3,
         "topA": 0,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-07-04T17:00:00Z",
+        "home": "Canada",
+        "away": "Morocco",
+        "hg": 0,
+        "ag": 3,
+        "pick": "away",
+        "pH": 0.196,
+        "pD": 0.285,
+        "pA": 0.519,
+        "topH": 1,
+        "topA": 1,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-07-04T21:00:00Z",
+        "home": "Paraguay",
+        "away": "France",
+        "hg": 0,
+        "ag": 1,
+        "pick": "away",
+        "pH": 0.015,
+        "pD": 0.063,
+        "pA": 0.922,
+        "topH": 0,
+        "topA": 3,
         "oHit": true,
         "sHit": false
       }
