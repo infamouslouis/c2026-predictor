@@ -1,14 +1,14 @@
 {
-  "updated": "2026-07-07T18:03:38.575Z",
+  "updated": "2026-07-08T03:16:54.264Z",
   "source": "football-data.org WC",
-  "matches": 94,
+  "matches": 96,
   "teams": {
     "Spain": {
       "e": 2182,
       "form": "WWWWW"
     },
     "Argentina": {
-      "e": 2131,
+      "e": 2134,
       "form": "WWWWW"
     },
     "France": {
@@ -28,8 +28,8 @@
       "form": "DWDWL"
     },
     "Colombia": {
-      "e": 1997,
-      "form": "WWWDW"
+      "e": 1975,
+      "form": "WWDWL"
     },
     "Netherlands": {
       "e": 1950,
@@ -52,8 +52,8 @@
       "form": "WLWWL"
     },
     "Switzerland": {
-      "e": 1925,
-      "form": "DDWWW"
+      "e": 1946,
+      "form": "DWWWW"
     },
     "Uruguay": {
       "e": 1870,
@@ -140,8 +140,8 @@
       "form": "LWDWL"
     },
     "Egypt": {
-      "e": 1747,
-      "form": "LDWDW"
+      "e": 1743,
+      "form": "DWDWL"
     },
     "Tunisia": {
       "e": 1641,
@@ -197,8 +197,8 @@
     }
   },
   "track": {
-    "played": 90,
-    "outcomeHits": 62,
+    "played": 92,
+    "outcomeHits": 63,
     "scoreHits": 11,
     "brier": 0.454,
     "matches": [
@@ -1547,6 +1547,36 @@
         "pH": 0.394,
         "pD": 0.29,
         "pA": 0.315,
+        "topH": 1,
+        "topA": 1,
+        "oHit": false,
+        "sHit": false
+      },
+      {
+        "date": "2026-07-07T16:00:00Z",
+        "home": "Argentina",
+        "away": "Egypt",
+        "hg": 3,
+        "ag": 2,
+        "pick": "home",
+        "pH": 0.92,
+        "pD": 0.066,
+        "pA": 0.014,
+        "topH": 3,
+        "topA": 0,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-07-07T20:00:00Z",
+        "home": "Switzerland",
+        "away": "Colombia",
+        "hg": 4,
+        "ag": 3,
+        "pick": "away",
+        "pH": 0.253,
+        "pD": 0.288,
+        "pA": 0.459,
         "topH": 1,
         "topA": 1,
         "oHit": false,
