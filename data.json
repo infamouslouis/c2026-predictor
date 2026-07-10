@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-09T17:59:47.880Z",
+  "updated": "2026-07-10T03:42:51.957Z",
   "source": "football-data.org WC",
-  "matches": 96,
+  "matches": 97,
   "teams": {
     "Spain": {
       "e": 2182,
@@ -12,7 +12,7 @@
       "form": "WWWWW"
     },
     "France": {
-      "e": 2110,
+      "e": 2124,
       "form": "WWWWW"
     },
     "England": {
@@ -68,8 +68,8 @@
       "form": "DLLWL"
     },
     "Morocco": {
-      "e": 1923,
-      "form": "DWWWW"
+      "e": 1910,
+      "form": "WWWWL"
     },
     "Türkiye": {
       "e": 1817,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 92,
-    "outcomeHits": 63,
-    "scoreHits": 11,
-    "brier": 0.454,
+    "played": 93,
+    "outcomeHits": 64,
+    "scoreHits": 12,
+    "brier": 0.451,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -1581,6 +1581,21 @@
         "topA": 1,
         "oHit": false,
         "sHit": false
+      },
+      {
+        "date": "2026-07-09T20:00:00Z",
+        "home": "France",
+        "away": "Morocco",
+        "hg": 2,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.646,
+        "pD": 0.235,
+        "pA": 0.119,
+        "topH": 2,
+        "topA": 0,
+        "oHit": true,
+        "sHit": true
       }
     ]
   }
