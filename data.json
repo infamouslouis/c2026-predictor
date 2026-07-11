@@ -1,10 +1,10 @@
 {
-  "updated": "2026-07-10T17:49:57.064Z",
+  "updated": "2026-07-11T02:56:49.498Z",
   "source": "football-data.org WC",
-  "matches": 97,
+  "matches": 98,
   "teams": {
     "Spain": {
-      "e": 2182,
+      "e": 2188,
       "form": "WWWWW"
     },
     "Argentina": {
@@ -80,8 +80,8 @@
       "form": "DWDLL"
     },
     "Belgium": {
-      "e": 1890,
-      "form": "DDWWW"
+      "e": 1884,
+      "form": "DWWWL"
     },
     "Mexico": {
       "e": 1875,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 93,
-    "outcomeHits": 64,
+    "played": 94,
+    "outcomeHits": 65,
     "scoreHits": 12,
-    "brier": 0.451,
+    "brier": 0.447,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -1596,6 +1596,21 @@
         "topA": 0,
         "oHit": true,
         "sHit": true
+      },
+      {
+        "date": "2026-07-10T19:00:00Z",
+        "home": "Spain",
+        "away": "Belgium",
+        "hg": 2,
+        "ag": 1,
+        "pick": "home",
+        "pH": 0.851,
+        "pD": 0.109,
+        "pA": 0.04,
+        "topH": 3,
+        "topA": 0,
+        "oHit": true,
+        "sHit": false
       }
     ]
   }
