@@ -1,14 +1,14 @@
 {
-  "updated": "2026-07-12T03:22:32.623Z",
+  "updated": "2026-07-12T09:54:10.492Z",
   "source": "football-data.org WC",
-  "matches": 98,
+  "matches": 100,
   "teams": {
     "Spain": {
       "e": 2188,
       "form": "WWWWW"
     },
     "Argentina": {
-      "e": 2134,
+      "e": 2148,
       "form": "WWWWW"
     },
     "France": {
@@ -16,8 +16,8 @@
       "form": "WWWWW"
     },
     "England": {
-      "e": 2051,
-      "form": "WDWWW"
+      "e": 2061,
+      "form": "DWWWW"
     },
     "Brazil": {
       "e": 1990,
@@ -52,8 +52,8 @@
       "form": "WLWWL"
     },
     "Switzerland": {
-      "e": 1946,
-      "form": "DWWWW"
+      "e": 1933,
+      "form": "WWWWL"
     },
     "Uruguay": {
       "e": 1870,
@@ -84,8 +84,8 @@
       "form": "DWWWL"
     },
     "Mexico": {
-      "e": 1886,
-      "form": "WWWWW"
+      "e": 1875,
+      "form": "WWWWL"
     },
     "USA": {
       "e": 1804,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 94,
-    "outcomeHits": 65,
+    "played": 96,
+    "outcomeHits": 67,
     "scoreHits": 12,
-    "brier": 0.445,
+    "brier": 0.442,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -1508,6 +1508,21 @@
         "sHit": false
       },
       {
+        "date": "2026-07-06T01:00:00Z",
+        "home": "Mexico",
+        "away": "England",
+        "hg": 2,
+        "ag": 3,
+        "pick": "away",
+        "pH": 0.245,
+        "pD": 0.293,
+        "pA": 0.462,
+        "topH": 1,
+        "topA": 1,
+        "oHit": true,
+        "sHit": false
+      },
+      {
         "date": "2026-07-06T19:00:00Z",
         "home": "Portugal",
         "away": "Spain",
@@ -1604,11 +1619,26 @@
         "hg": 1,
         "ag": 2,
         "pick": "away",
-        "pH": 0.205,
-        "pD": 0.252,
-        "pA": 0.543,
+        "pH": 0.186,
+        "pD": 0.244,
+        "pA": 0.569,
         "topH": 1,
         "topA": 1,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-07-12T01:00:00Z",
+        "home": "Argentina",
+        "away": "Switzerland",
+        "hg": 3,
+        "ag": 1,
+        "pick": "home",
+        "pH": 0.649,
+        "pD": 0.234,
+        "pA": 0.117,
+        "topH": 2,
+        "topA": 0,
         "oHit": true,
         "sHit": false
       }
