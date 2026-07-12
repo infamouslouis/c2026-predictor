@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-11T17:01:58.021Z",
+  "updated": "2026-07-12T03:22:32.623Z",
   "source": "football-data.org WC",
   "matches": 98,
   "teams": {
@@ -16,7 +16,7 @@
       "form": "WWWWW"
     },
     "England": {
-      "e": 2048,
+      "e": 2051,
       "form": "WDWWW"
     },
     "Brazil": {
@@ -44,8 +44,8 @@
       "form": "WWWLL"
     },
     "Norway": {
-      "e": 1948,
-      "form": "WWLWW"
+      "e": 1935,
+      "form": "WLWWL"
     },
     "Croatia": {
       "e": 1894,
@@ -84,8 +84,8 @@
       "form": "DWWWL"
     },
     "Mexico": {
-      "e": 1875,
-      "form": "WWWWL"
+      "e": 1886,
+      "form": "WWWWW"
     },
     "USA": {
       "e": 1804,
@@ -200,7 +200,7 @@
     "played": 94,
     "outcomeHits": 65,
     "scoreHits": 12,
-    "brier": 0.447,
+    "brier": 0.445,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -1508,21 +1508,6 @@
         "sHit": false
       },
       {
-        "date": "2026-07-06T01:00:00Z",
-        "home": "Mexico",
-        "away": "England",
-        "hg": 2,
-        "ag": 3,
-        "pick": "away",
-        "pH": 0.245,
-        "pD": 0.293,
-        "pA": 0.462,
-        "topH": 1,
-        "topA": 1,
-        "oHit": true,
-        "sHit": false
-      },
-      {
         "date": "2026-07-06T19:00:00Z",
         "home": "Portugal",
         "away": "Spain",
@@ -1609,6 +1594,21 @@
         "pA": 0.04,
         "topH": 3,
         "topA": 0,
+        "oHit": true,
+        "sHit": false
+      },
+      {
+        "date": "2026-07-11T21:00:00Z",
+        "home": "Norway",
+        "away": "England",
+        "hg": 1,
+        "ag": 2,
+        "pick": "away",
+        "pH": 0.205,
+        "pD": 0.252,
+        "pA": 0.543,
+        "topH": 1,
+        "topA": 1,
         "oHit": true,
         "sHit": false
       }
