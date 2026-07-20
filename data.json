@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-19T17:01:54.463Z",
+  "updated": "2026-07-20T03:33:01.236Z",
   "source": "football-data.org WC",
-  "matches": 103,
+  "matches": 104,
   "teams": {
     "Spain": {
-      "e": 2210,
+      "e": 2225,
       "form": "WWWWW"
     },
     "Argentina": {
-      "e": 2161,
-      "form": "WWWWW"
+      "e": 2146,
+      "form": "WWWWL"
     },
     "France": {
       "e": 2071,
@@ -197,10 +197,10 @@
     }
   },
   "track": {
-    "played": 99,
-    "outcomeHits": 69,
+    "played": 100,
+    "outcomeHits": 70,
     "scoreHits": 12,
-    "brier": 0.445,
+    "brier": 0.446,
     "matches": [
       {
         "date": "2026-06-11T19:00:00Z",
@@ -1685,6 +1685,21 @@
         "topH": 1,
         "topA": 1,
         "oHit": false,
+        "sHit": false
+      },
+      {
+        "date": "2026-07-19T19:00:00Z",
+        "home": "Spain",
+        "away": "Argentina",
+        "hg": 1,
+        "ag": 0,
+        "pick": "home",
+        "pH": 0.428,
+        "pD": 0.292,
+        "pA": 0.28,
+        "topH": 1,
+        "topA": 1,
+        "oHit": true,
         "sHit": false
       }
     ]
